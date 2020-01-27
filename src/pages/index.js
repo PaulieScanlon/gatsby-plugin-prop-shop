@@ -1,21 +1,49 @@
 import React from "react"
-import { Link } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
 
-import Layout from "../components/layout"
-import Image from "../components/image"
-import SEO from "../components/seo"
+import Layout from "../templates/layout"
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
-  </Layout>
-)
+const IndexPage = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      allComponentMetadata {
+        edges {
+          node {
+            displayName
+            props {
+              flowType
+              tsType
+              type {
+                name
+                value
+                raw
+              }
+              required
+              defaultValue {
+                value
+              }
+              name
+              description {
+                text
+              }
+            }
+          }
+        }
+      }
+    }
+  `)
+
+  const { allComponentMetadata } = data
+
+  return (
+    <Layout>
+      <h1>INDEX</h1>
+      <p> This is where the prop table stuff will be</p>
+      <code>
+        <pre>{JSON.stringify(allComponentMetadata, null, 2)}</pre>
+      </code>
+    </Layout>
+  )
+}
 
 export default IndexPage
