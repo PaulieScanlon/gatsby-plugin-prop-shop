@@ -4,7 +4,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `components`,
-        path: `${__dirname}/components`,
+        path: `${__dirname}/_test`,
       },
     },
     `gatsby-transformer-react-docgen`,

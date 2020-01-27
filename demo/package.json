@@ -1,0 +1,15 @@
+{
+  "name": "demo",
+  "private": false,
+  "version": "1.0.0",
+  "scripts": {
+    "componentz:report": "say-hello"
+  },
+  "dependencies": {
+    "componentz": "*"
+  },
+  "devDependencies": {
+    "prettier": "^1.19.1"
+  },
+  "license": "MIT"
+}
