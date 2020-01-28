@@ -1,11 +1,15 @@
 {
   "private": true,
   "scripts": {
-    "componentz:report": "yarn workspace demo componentz:report",
-    "release": "node copy-readme.js"
+    "release": "node copy-readme.js",
+    "clean": "yarn workspace demo clean && yarn workspace @pauliescanlon/gatsby-plugin-prop-shop clean",
+    "build:plugin": "yarn workspace @pauliescanlon/gatsby-plugin-prop-shop build",
+    "develop:plugin": "yarn workspace @pauliescanlon/gatsby-plugin-prop-shop develop",
+    "build": "yarn workspace demo build",
+    "develop": "yarn workspace demo develop"
   },
   "workspaces": [
-    "componentz",
+    "@pauliescanlon/gatsby-plugin-prop-shop",
     "demo"
   ]
 }

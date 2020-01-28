@@ -1,4 +1,4 @@
-# componentz
+# gatsby-plugin-prop-shop
 
 ...
 
