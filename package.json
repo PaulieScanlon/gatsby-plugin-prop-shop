@@ -1,12 +1,13 @@
 {
   "private": true,
   "scripts": {
-    "release": "node copy-readme.js",
+    "serve": "yarn workspace demo serve",
     "clean": "yarn workspace demo clean && yarn workspace @pauliescanlon/gatsby-plugin-prop-shop clean",
     "build:plugin": "yarn workspace @pauliescanlon/gatsby-plugin-prop-shop build",
     "develop:plugin": "yarn workspace @pauliescanlon/gatsby-plugin-prop-shop develop",
     "build": "yarn workspace demo build",
-    "develop": "yarn workspace demo develop"
+    "develop": "yarn workspace demo develop",
+    "release": "node copy-readme.js"
   },
   "workspaces": [
     "@pauliescanlon/gatsby-plugin-prop-shop",

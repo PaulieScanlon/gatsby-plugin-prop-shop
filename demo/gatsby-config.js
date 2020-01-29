@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter - Demo`,
+    title: `Gatsby Default Starter`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
     author: `@gatsbyjs`,
   },
@@ -33,8 +33,10 @@ module.exports = {
     {
       resolve: `@pauliescanlon/gatsby-plugin-prop-shop`,
       options: {
-        contentPath: `components`,
-        outputDir: "public", // default value is static
+        // source: `pages`,
+        // source: `components`,
+        // source: [`components`],
+        source: [`pages`, `components`],
       },
     },
   ],
