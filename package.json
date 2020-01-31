@@ -2,7 +2,7 @@
   "private": true,
   "scripts": {
     "serve": "yarn workspace demo serve",
-    "clean": "yarn workspace demo clean && yarn workspace @pauliescanlon/gatsby-plugin-prop-shop clean",
+    "clean": "yarn workspace demo clean",
     "build:plugin": "yarn workspace @pauliescanlon/gatsby-plugin-prop-shop build",
     "develop:plugin": "yarn workspace @pauliescanlon/gatsby-plugin-prop-shop develop",
     "build": "yarn workspace demo build",

@@ -1,0 +1,15 @@
+export const header = {
+  alignItems: 'center',
+  backgroundColor: 'psHeaderBackground',
+  borderBottomStyle: 'solid',
+  borderBottomWidth: 1,
+  borderBottomColor: 'psTableBorder',
+  color: 'psBackground',
+  display: 'flex',
+  fontFamily: 'psBody',
+  fontSize: 2,
+  position: 'fixed',
+  padding: 3,
+  width: '100%',
+  zIndex: 999,
+}

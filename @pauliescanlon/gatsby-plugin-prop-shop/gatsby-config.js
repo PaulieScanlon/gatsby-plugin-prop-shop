@@ -1,9 +1,9 @@
-const path = require("path")
+const path = require('path')
 
 module.exports = pluginOptions => {
   const { source } = pluginOptions
 
-  if (!source) throw new Error("prop-shop needs a source")
+  if (!source) throw new Error('prop-shop needs a source')
 
   let filesystemSources = []
 
@@ -26,6 +26,10 @@ module.exports = pluginOptions => {
   }
 
   return {
-    plugins: [...filesystemSources, `gatsby-transformer-react-docgen`],
+    plugins: [
+      ...filesystemSources,
+      `gatsby-transformer-react-docgen`,
+      `gatsby-plugin-theme-ui`,
+    ],
   }
 }

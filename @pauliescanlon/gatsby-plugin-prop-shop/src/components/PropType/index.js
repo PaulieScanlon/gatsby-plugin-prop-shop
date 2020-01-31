@@ -1,0 +1,1 @@
+export { PropType } from './PropType'

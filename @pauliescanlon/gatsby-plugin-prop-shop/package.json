@@ -14,20 +14,24 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/PaulieScanlon/componentz.git"
+    "url": "git+https://github.com/PaulieScanlon/gatsby-plugin-prop-shop.git"
   },
   "dependencies": {
-    "commander": "^4.1.0",
-    "fs-extra": "^8.1.0",
-    "gatsby": "^2.19.5",
+    "@emotion/core": "^10.0.27",
+    "@mdx-js/react": "^1.5.5",
+    "gatsby-plugin-theme-ui": "^0.3.0",
     "gatsby-source-filesystem": "^2.1.46",
     "gatsby-transformer-react-docgen": "^5.0.28",
-    "prop-types": "^15.7.2",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "theme-ui": "^0.3.1"
   },
   "devDependencies": {
     "prettier": "^1.19.1"
+  },
+  "peerDependencies": {
+    "gatsby": "^2.19.5",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "prop-types": "^15.7.2"
   },
   "license": "MIT"
 }

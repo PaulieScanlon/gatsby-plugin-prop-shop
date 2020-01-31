@@ -36,7 +36,7 @@ module.exports = {
         // source: `pages`,
         // source: `components`,
         // source: [`components`],
-        source: [`pages`, `components`],
+        source: [`pages`, `images`, `components`],
       },
     },
   ],
