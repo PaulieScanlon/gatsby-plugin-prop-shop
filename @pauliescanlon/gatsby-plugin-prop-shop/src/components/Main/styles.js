@@ -4,3 +4,7 @@ export const main = {
   marginRight: 'auto',
   width: '90%',
 }
+
+export const child = {
+  paddingTop: 6,
+}

@@ -1,0 +1,1 @@
+export { PropTable } from './PropTable'

@@ -2,7 +2,6 @@ export const tableContainer = {
   outlineColor: 'psTableBorder',
   outlineStyle: 'solid',
   outlineWidth: 1,
-  marginTop: 5,
   height: 600,
 }
 
