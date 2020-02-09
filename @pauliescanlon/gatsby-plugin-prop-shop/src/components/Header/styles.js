@@ -9,7 +9,7 @@ export const header = {
   fontFamily: 'psBody',
   fontSize: 2,
   position: 'fixed',
-  padding: 3,
+  padding: 4,
   width: '100%',
   zIndex: 999,
 }

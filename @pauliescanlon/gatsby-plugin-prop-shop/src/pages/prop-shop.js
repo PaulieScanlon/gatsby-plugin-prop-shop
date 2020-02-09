@@ -8,6 +8,7 @@ import { Main } from '../components/Main'
 import { Search } from '../components/Search'
 
 import { PropTable } from '../components/PropTable/PropTable'
+import { Filters } from '../components/Filters'
 
 const defaultSearchFilter = 'name'
 const DISPLAY_NAME = 'file'
@@ -42,6 +43,8 @@ const PropShop = () => {
 
   const [searchTerm, setSearchTerm] = useState('')
   const [searchFilter, setSearchFilter] = useState(defaultSearchFilter)
+  const [noPropsFilter, setNoPropsFilter] = useState(false)
+
   const { edges } = data.allComponentMetadata
 
   const filterOptions = edges.reduce((items, item) => {
@@ -93,14 +96,31 @@ const PropShop = () => {
               .toLowerCase()
               .includes(searchTerm.toLowerCase())
           }
+
+          default: //
         }
       })
     })
+
+  const edgeData = edges
+    .map(edge => edge)
+    .filter(edge => (noPropsFilter ? edge.node.props.length >= 1 : edge))
+
+  // console.log(noPropsFilter)
+  // console.log(edgeData)
+  // console.log(propData)
 
   return (
     <Fragment>
       <Header />
       <Main>
+        <Filters
+          searchFilter={searchFilter}
+          setSearchFilter={event => setSearchFilter(event.currentTarget.value)}
+          filterOptions={filterOptions}
+          noPropsFilter={noPropsFilter}
+          setNoPropsFilter={() => setNoPropsFilter(!noPropsFilter)}
+        />
         <Search
           searchTerm={searchTerm}
           setSearchTerm={event =>
@@ -108,12 +128,10 @@ const PropShop = () => {
           }
           clearSearchTerm={() => setSearchTerm('')}
           searchFilter={searchFilter}
-          setSearchFilter={event => setSearchFilter(event.currentTarget.value)}
-          filterOptions={filterOptions}
         />
         <PropTable
           searchTerm={searchTerm}
-          propData={searchTerm ? propData : edges}
+          propData={searchTerm ? propData : edgeData}
           filterOptions={filterOptions}
         />
       </Main>

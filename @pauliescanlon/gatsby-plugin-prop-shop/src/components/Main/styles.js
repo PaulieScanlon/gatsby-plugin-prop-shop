@@ -1,7 +1,6 @@
 export const main = {
   backgroundColor: 'psBackground',
-  marginLeft: 'auto',
-  marginRight: 'auto',
+  margin: '0px auto',
   width: '90%',
 }
 

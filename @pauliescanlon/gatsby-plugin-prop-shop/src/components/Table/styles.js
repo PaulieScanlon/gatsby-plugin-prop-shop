@@ -1,7 +1,7 @@
 export const tableContainer = {
-  outlineColor: 'psTableBorder',
-  outlineStyle: 'solid',
-  outlineWidth: 1,
+  borderColor: 'psTableBorder',
+  borderStyle: 'solid',
+  borderWidth: 0,
   height: 600,
 }
 
