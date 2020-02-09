@@ -9,6 +9,9 @@ import { Search } from '../components/Search'
 
 import { PropTable } from '../components/PropTable/PropTable'
 
+const defaultSearchFilter = 'name'
+const DISPLAY_NAME = 'file'
+
 const PropShop = () => {
   const data = useStaticQuery(graphql`
     query {
@@ -37,38 +40,82 @@ const PropShop = () => {
     }
   `)
 
-  const [searchItem, setSearchItem] = useState()
+  const [searchTerm, setSearchTerm] = useState('')
+  const [searchFilter, setSearchFilter] = useState(defaultSearchFilter)
   const { edges } = data.allComponentMetadata
 
-  const propData = edges.filter(
-    edge =>
-      !searchItem || edge.node.props.map(prop => prop.name).includes(searchItem)
-  )
+  const filterOptions = edges.reduce((items, item) => {
+    if (item.node.props[0] && items.length < 1) {
+      let propArray = Object.keys(item.node.props[0]).slice(1)
+      items.push(DISPLAY_NAME, ...propArray)
+    }
+    return items
+  }, [])
 
-  const tableHeaders = edges
-    .reduce((items, item) => {
-      if (item.node.props[0] && items.length < 1) {
-        items.push(...Object.keys(item.node.props[0]))
+  const propData = edges
+    .map(edge => edge)
+    .filter(edge => {
+      if (searchFilter === DISPLAY_NAME) {
+        return edge.node.displayName
+          .toLowerCase()
+          .includes(searchTerm.toLowerCase())
       }
-      return items
-    }, [])
-    // replaces id with "file"
-    .map((item, index) => (index === 0 ? 'file' : item))
+      return edge.node.props.some(prop => {
+        switch (searchFilter) {
+          case 'id': {
+            return prop.id.toLowerCase().includes(searchTerm.toLowerCase())
+          }
 
-  // console.log(tableHeaders)
-  // console.log(searchItem)
-  // console.log(edges)
-  // console.log(propData)
+          case 'name': {
+            return prop.name.toLowerCase().includes(searchTerm.toLowerCase())
+          }
+
+          case 'type': {
+            return prop.type.name
+              .toLowerCase()
+              .includes(searchTerm.toLowerCase())
+          }
+
+          case 'required': {
+            return prop.required.toString().includes(searchTerm.toLowerCase())
+          }
+
+          case 'defaultValue': {
+            return (
+              prop.defaultValue &&
+              prop.defaultValue.value
+                .toLowerCase()
+                .includes(searchTerm.toLowerCase())
+            )
+          }
+          case 'description': {
+            return prop.description.text
+              .toLowerCase()
+              .includes(searchTerm.toLowerCase())
+          }
+        }
+      })
+    })
+
   return (
     <Fragment>
       <Header />
       <Main>
         <Search
-          searchItem={searchItem}
-          setSearchItem={event => setSearchItem(event.currentTarget.value)}
-          clearSearchItem={() => setSearchItem('')}
+          searchTerm={searchTerm}
+          setSearchTerm={event =>
+            setSearchTerm(event.currentTarget.value || '')
+          }
+          clearSearchTerm={() => setSearchTerm('')}
+          searchFilter={searchFilter}
+          setSearchFilter={event => setSearchFilter(event.currentTarget.value)}
+          filterOptions={filterOptions}
         />
-        <PropTable propData={propData} tableHeaders={tableHeaders} />
+        <PropTable
+          searchTerm={searchTerm}
+          propData={searchTerm ? propData : edges}
+          filterOptions={filterOptions}
+        />
       </Main>
     </Fragment>
   )

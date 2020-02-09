@@ -81,7 +81,7 @@ SEO.defaultProps = {
 SEO.propTypes = {
   description: PropTypes.string,
   lang: PropTypes.string,
-  /** Site meta descripton text */
+  /** The quick brown fox jumps over the lazy dog */
   meta: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string.isRequired,
 }

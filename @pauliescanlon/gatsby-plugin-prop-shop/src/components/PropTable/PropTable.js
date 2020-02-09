@@ -16,14 +16,15 @@ import {
 
 import { PropType } from '../PropType'
 import { Required } from '../Required'
+import { DefaultValue } from '../DefaultValue'
 
-export const PropTable = ({ propData, tableHeaders }) => (
+export const PropTable = ({ propData, filterOptions }) => (
   <TableContainer>
     <TableWrapper>
       <Table>
         <Thead>
           <Tr>
-            {tableHeaders.map((header, index) => (
+            {filterOptions.map((header, index) => (
               <Th key={`${header}-${index}`}>{header}</Th>
             ))}
           </Tr>
@@ -38,40 +39,41 @@ export const PropTable = ({ propData, tableHeaders }) => (
                   }`}
                 >
                   <Td>{edge.node.displayName}</Td>
-                  {tableHeaders.map((_, headderIndex) =>
+                  {filterOptions.map((_, headderIndex) =>
                     headderIndex === 0 ? null : <Td key={headderIndex}></Td>
                   )}
                 </Tr>
                 {edge.node.props.length ? (
                   edge.node.props.map((prop, propIndex) => {
-                    return (
-                      <Tr
-                        className={`tr-${propDataIndex % 2 ? 'odd' : 'even'}`}
-                        key={propIndex}
-                      >
-                        <Td>
-                          {/* // TODO the opacity is determined by if search/sort filters are applied */}
-                          <span style={{ opacity: 0 }}>
-                            {edge.node.displayName}
-                          </span>
-                        </Td>
-                        <Td>{prop.name}</Td>
-                        <Td>
-                          <PropType type={prop.type} />
-                        </Td>
-                        <Td>
-                          <Required required={prop.required} />
-                        </Td>
-                        <Td>
-                          {prop.defaulValue ? prop.defaulValue.value : ''}
-                        </Td>
-                        <Td>{prop.description.text || ''}</Td>
-                      </Tr>
-                    )
+                    {
+                      return (
+                        <Tr
+                          className={`tr-${propDataIndex % 2 ? 'odd' : 'even'}`}
+                          key={propIndex}
+                        >
+                          <Td>
+                            <span style={{ opacity: 0 }}>
+                              {edge.node.displayName}
+                            </span>
+                          </Td>
+                          <Td>{prop.name}</Td>
+                          <Td>
+                            <PropType type={prop.type} />
+                          </Td>
+                          <Td>
+                            <Required required={prop.required} />
+                          </Td>
+                          <Td>
+                            <DefaultValue defaultValue={prop.defaultValue} />
+                          </Td>
+                          <Td>{prop.description.text || ''}</Td>
+                        </Tr>
+                      )
+                    }
                   })
                 ) : (
                   <Tr className={`tr-${propDataIndex % 2 ? 'odd' : 'even'}`}>
-                    {tableHeaders.map((_, headerIndex) => (
+                    {filterOptions.map((_, headerIndex) => (
                       <Td key={headerIndex}>{headerIndex === 0 ? '' : '-'}</Td>
                     ))}
                   </Tr>
@@ -89,5 +91,7 @@ PropTable.propTypes = {
   /** The result of graphql allComponentMetaData query + applied filter */
   propData: PropTypes.arrayOf(PropTypes.object),
   /** The names of the table headers */
-  tableHeaders: PropTypes.arrayOf(PropTypes.string),
+  filterOptions: PropTypes.arrayOf(PropTypes.string),
+  /** The search term defined by the user input */
+  searchTerm: PropTypes.string,
 }
