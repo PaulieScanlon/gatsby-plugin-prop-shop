@@ -1,3 +1,5 @@
+import { commonFocus } from '../common'
+
 export const search = {
   alignItems: 'center',
   borderWidth: 0,
@@ -5,18 +7,23 @@ export const search = {
   borderStyle: 'solid',
   color: 'psTextLight',
   display: 'flex',
+  fontFamily: 'psBody',
+  fontSize: 1,
   p: 3,
-  mb: 4,
+  mb: 2,
   marginLeft: 'auto',
   marginRight: 'auto',
-  width: '50%',
+  ':focus-within': {
+    ...commonFocus,
+  },
 }
 
 export const input = {
   border: 'none',
   color: 'inherit',
   display: 'flex',
-  fontSize: 1,
+  fontFamily: 'inherit',
+  fontSize: 'inherit',
   flexBasis: '100%',
   ':focus': {
     outline: 'none',

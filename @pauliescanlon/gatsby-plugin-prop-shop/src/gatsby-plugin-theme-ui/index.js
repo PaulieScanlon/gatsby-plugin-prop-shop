@@ -12,6 +12,7 @@ export default {
 
     psError: '#e58c92',
     psSuccess: '#77dab2',
+    psFocus: '#fdd8e4',
     //
     text: '#000000',
     background: '#ffffff',
@@ -34,4 +35,5 @@ export default {
   space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
   radii: [0, 2, 4],
   borderWidths: [1, 2],
+  shadows: [`0 0 0 2px`],
 }

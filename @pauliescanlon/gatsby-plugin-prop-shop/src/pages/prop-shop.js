@@ -58,6 +58,7 @@ const PropShop = () => {
   const propData = edges
     .map(edge => edge)
     .filter(edge => {
+      // TODO abstract this filter so it can be re-used in the table
       if (searchFilter === DISPLAY_NAME) {
         return edge.node.displayName
           .toLowerCase()
@@ -114,13 +115,6 @@ const PropShop = () => {
     <Fragment>
       <Header />
       <Main>
-        <Filters
-          searchFilter={searchFilter}
-          setSearchFilter={event => setSearchFilter(event.currentTarget.value)}
-          filterOptions={filterOptions}
-          noPropsFilter={noPropsFilter}
-          setNoPropsFilter={() => setNoPropsFilter(!noPropsFilter)}
-        />
         <Search
           searchTerm={searchTerm}
           setSearchTerm={event =>
@@ -129,6 +123,14 @@ const PropShop = () => {
           clearSearchTerm={() => setSearchTerm('')}
           searchFilter={searchFilter}
         />
+        <Filters
+          searchFilter={searchFilter}
+          setSearchFilter={event => setSearchFilter(event.currentTarget.value)}
+          filterOptions={filterOptions}
+          noPropsFilter={noPropsFilter}
+          setNoPropsFilter={() => setNoPropsFilter(!noPropsFilter)}
+        />
+
         <PropTable
           searchTerm={searchTerm}
           propData={searchTerm ? propData : edgeData}
