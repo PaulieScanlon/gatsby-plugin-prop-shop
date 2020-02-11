@@ -4,6 +4,8 @@ import { Fragment, useState } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 
 import { Header } from '../components/Header'
+import { Intro } from '../components/Intro'
+
 import { Main } from '../components/Main'
 import { Search } from '../components/Search'
 
@@ -115,6 +117,7 @@ const PropShop = () => {
     <Fragment>
       <Header />
       <Main>
+        <Intro />
         <Search
           searchTerm={searchTerm}
           setSearchTerm={event =>
@@ -122,11 +125,10 @@ const PropShop = () => {
           }
           clearSearchTerm={() => setSearchTerm('')}
           searchFilter={searchFilter}
-        />
-        <Filters
-          searchFilter={searchFilter}
           setSearchFilter={event => setSearchFilter(event.currentTarget.value)}
           filterOptions={filterOptions}
+        />
+        <Filters
           noPropsFilter={noPropsFilter}
           setNoPropsFilter={() => setNoPropsFilter(!noPropsFilter)}
         />

@@ -1,8 +1,8 @@
 export const tableContainer = {
-  borderColor: 'psTableBorder',
-  borderStyle: 'solid',
-  borderWidth: 0,
-  height: 600,
+  borderRadius: 0,
+  boxShadow: 1,
+  overflow: 'hidden',
+  height: 300,
 }
 
 export const tableWrapper = {
@@ -14,9 +14,9 @@ export const tableWrapper = {
 export const table = {
   borderCollapse: 'separate',
   borderSpacing: 0,
-  color: 'psTextPrimary',
+  color: 'psTextDark',
   fontFamily: 'psBody',
-  fontSize: 1,
+  fontSize: 0,
   textAlign: 'left',
   padding: 0,
   margin: 0,
@@ -30,17 +30,16 @@ export const thead = {}
 
 export const tbody = {
   '.tr-even': {
-    color: 'psTextLight',
-    backgroundColor: 'psBackground',
+    color: 'psTextMedium',
+    backgroundColor: 'psTrEvenBackground',
     'td:first-of-type': {
-      backgroundColor: 'psBackground',
+      backgroundColor: 'psTrEvenBackground',
     },
   },
   '.tr-odd': {
-    color: 'psTextDark',
-    backgroundColor: 'psTrBackground',
+    backgroundColor: 'psTrOddBackground',
     'td:first-of-type': {
-      backgroundColor: 'psTrBackground',
+      backgroundColor: 'psTrOddBackground',
     },
   },
 }
@@ -49,16 +48,17 @@ export const tr = {
   'td:first-of-type, th:first-of-type': {
     borderRightStyle: 'solid',
     borderRightWidth: 1,
+    fontWeight: 'bold',
     left: 0,
     position: 'sticky',
     zIndex: 2,
   },
   'th:first-of-type': {
     zIndex: 3,
-    borderRightColor: 'psTheadBorder',
+    borderRightColor: 'psTableHeadDivider',
   },
   'td:first-of-type': {
-    borderRightColor: 'psTableBorder',
+    borderRightColor: 'psTableBodyDivider',
   },
 }
 

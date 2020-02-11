@@ -1,47 +1,55 @@
 import { commonFocus } from '../common'
 
-const downArrow =
-  'data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M7 10l5 5 5-5z" fill="%237c7c7c" /></svg>'
-
 export const filters = {
   alignItems: 'center',
   color: 'psTextLight',
   display: 'flex',
   fontFamily: 'psBody',
-  fontSize: 1,
+  fontSize: 0,
   marginLeft: 'auto',
   marginRight: 'auto',
   mb: 4,
+  borderBottomWidth: 0,
+  borderBottomStyle: 'solid',
+  borderBottomColor: 'psCommonDivider',
 }
 
-export const select = {
+export const checkboxLabel = {
   alignItems: 'center',
-  appearance: 'none',
   borderRadius: 0,
-  borderWidth: 0,
-  borderColor: 'psTableBorder',
-  borderStyle: 'solid',
-  backgroundColor: 'psBackground',
-  backgroundImage: `url('${downArrow}')`,
-  backgroundPosition: 'center right',
-  backgroundSize: 24,
-  backgroundRepeat: 'no-repeat',
+  cursor: 'pointer',
+  color: 'psPrimary',
   display: 'flex',
-  flexBasis: '40%',
-  pt: 2,
-  pl: 3,
-  pb: 2,
-  pr: 3,
-  color: 'psTextLight',
-  fontFamily: ' inherit',
-  fontSize: 'inherit',
-  mr: 2,
-  textTransform: 'capitalize',
+  position: 'relative',
+  p: 2,
+  mb: 2,
+  userSelect: 'none',
+}
 
+export const checkbox = {
+  left: 0,
+  opacity: 0,
+  position: 'absolute',
+  top: 0,
+  '~ .checked-icon, ~ .un-checked-icon': {
+    display: 'none',
+    mr: 2,
+    borderRadius: 0,
+  },
+  ':checked ~ .checked-icon': {
+    display: 'block',
+  },
+  ':not(:checked) ~ .un-checked-icon': {
+    display: 'block',
+  },
   ':focus': {
     outline: 'none',
-    ...commonFocus,
+    '~ .checked-icon, ~ .un-checked-icon': {
+      ...commonFocus,
+    },
   },
 }
 
-export const checkbox = {}
+export const labelText = {
+  color: 'psTextDark',
+}

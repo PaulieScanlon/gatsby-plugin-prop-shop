@@ -1,9 +1,11 @@
 export const main = {
   backgroundColor: 'psBackground',
-  margin: '0px auto',
-  width: '90%',
+  minHeight: '100vh',
+  height: '100%',
 }
 
 export const child = {
-  paddingTop: 6,
+  paddingTop: 5,
+  margin: '0px auto',
+  width: '90%',
 }

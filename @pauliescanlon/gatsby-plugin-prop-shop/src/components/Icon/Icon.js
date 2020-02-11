@@ -2,8 +2,9 @@
 import { jsx } from 'theme-ui'
 import PropTypes from 'prop-types'
 
-export const Icon = ({ iconPath, iconFill, iconSize }) => (
+export const Icon = ({ iconPath, iconFill, iconSize, ...rest }) => (
   <svg
+    {...rest}
     width={iconSize}
     height={iconSize}
     viewBox={`0 0 24 24`}

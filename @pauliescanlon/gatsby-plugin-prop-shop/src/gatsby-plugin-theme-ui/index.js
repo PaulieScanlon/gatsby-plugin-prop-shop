@@ -1,18 +1,28 @@
 export default {
   colors: {
-    psTextLight: '#7c7c7c',
-    psTextDark: '#636363',
-    psHeaderBackground: '#1a1a1a',
-    psBackground: '#ffffff',
+    psPrimary: '#93cde8',
+    psSecondary: '#5f7bbc',
+    psTertiary: '#73b7e6',
+    psMuted: '#c3c9e2',
 
-    psTheadBackground: '#ec407a',
-    psTheadBorder: '#e91e63',
-    psTableBorder: '#ececec',
-    psTrBackground: '#fafafa',
+    psTextLight: '#cccccc',
+    psTextDark: '#666666',
+    psTextMedium: '#999999',
+    psBackground: '#f5f7fc',
 
-    psError: '#e58c92',
-    psSuccess: '#77dab2',
-    psFocus: '#fdd8e4',
+    psCommonDivider: '#f1f1f1',
+    psSearchDivider: '#f5f7fc',
+    psTableBodyDivider: '#edf0f2',
+    psTableHeadDivider: '#454545',
+
+    psTheadBackground: '#000000',
+    psTrOddBackground: '#fafbfd',
+    psTrEvenBackground: '#ffffff',
+
+    psFocus: '#d4eefb',
+
+    psWhite: '#ffffff',
+    psBlack: '#000000',
     //
     text: '#000000',
     background: '#ffffff',
@@ -23,17 +33,17 @@ export default {
     psMonospace: 'Menlo, monospace',
   },
   fontWeights: {
-    body: 400,
-    heading: 700,
+    light: 200,
+    regular: 400,
     bold: 700,
   },
   lineHeights: {
     body: 1.5,
     heading: 1.125,
   },
-  fontSizes: [12, 14, 16, 20, 24, 32, 48, 64, 72],
+  fontSizes: [12, 28],
   space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
-  radii: [0, 2, 4],
+  radii: [4, 50],
   borderWidths: [1, 2],
-  shadows: [`0 0 0 2px`],
+  shadows: ['0 0 0 2px', '0px 0px 25px -15px rgba(0,0,0,0.2)'],
 }

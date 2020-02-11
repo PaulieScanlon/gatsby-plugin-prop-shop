@@ -1,15 +1,27 @@
+import { commonFocus } from '../common'
+
 export const header = {
   alignItems: 'center',
-  backgroundColor: 'psHeaderBackground',
-  borderBottomStyle: 'solid',
-  borderBottomWidth: 1,
-  borderBottomColor: 'psTableBorder',
-  color: 'psBackground',
-  display: 'flex',
-  fontFamily: 'psBody',
-  fontSize: 2,
+  backgroundColor: 'psWhite',
+  boxShadow: 1,
+  color: 'psPrimary',
   position: 'fixed',
-  padding: 4,
+  padding: 3,
   width: '100%',
   zIndex: 999,
+}
+
+export const backLink = {
+  display: 'inline-flex',
+  alignItems: 'center',
+  border: 'none',
+  borderRadius: 1,
+  cursor: 'pointer',
+  color: 'psPrimary',
+  m: 0,
+  p: 0,
+  ':focus': {
+    outline: 'none',
+    ...commonFocus,
+  },
 }
