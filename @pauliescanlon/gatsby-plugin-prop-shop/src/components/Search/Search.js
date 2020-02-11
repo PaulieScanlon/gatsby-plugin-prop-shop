@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx } from 'theme-ui'
+import { jsx, Flex, Box } from 'theme-ui'
 import PropTypes from 'prop-types'
 
 import { Icon } from '../Icon'
@@ -21,32 +21,51 @@ export const Search = ({
   clearSearchTerm,
 }) => {
   return (
-    <div sx={styles.search}>
-      <div>
-        <Icon iconPath={SEARCH_ICON} style={{ marginTop: 5 }} />
-      </div>
-      <select
-        sx={styles.select}
-        onChange={setSearchFilter}
-        value={searchFilter}
+    <Flex sx={styles.search}>
+      <Box
+        sx={{
+          width: ['100%', '100%', '30%', '25%'],
+          mb: 3,
+        }}
       >
-        {filterOptions.map((option, index) => (
-          <option key={index}>{option}</option>
-        ))}
-      </select>
-      <div sx={styles.divider} />
-      <input
-        sx={styles.input}
-        placeholder={`Search by ${searchFilter} ...`}
-        value={searchTerm || ''}
-        onChange={setSearchTerm}
-      />
-      {searchTerm ? (
-        <button sx={styles.clearSearchButton} onClick={clearSearchTerm}>
-          <Icon iconPath={CLEAR_SEARCH_ICON} />
-        </button>
-      ) : null}
-    </div>
+        <div sx={styles.selectContainer}>
+          <div>
+            <Icon iconPath={SEARCH_ICON} style={{ marginTop: 5 }} />
+          </div>
+          <select
+            sx={styles.select}
+            onChange={setSearchFilter}
+            value={searchFilter}
+          >
+            {filterOptions.map((option, index) => (
+              <option key={index}>{option}</option>
+            ))}
+          </select>
+          {/* <div sx={styles.divider} /> */}
+        </div>
+      </Box>
+
+      <Box
+        sx={{
+          width: ['100%', '100%', '70%', '75%'],
+          mb: 3,
+        }}
+      >
+        <div sx={styles.inputContainer}>
+          <input
+            sx={styles.input}
+            placeholder={`Search by ${searchFilter} ...`}
+            value={searchTerm || ''}
+            onChange={setSearchTerm}
+          />
+          {searchTerm ? (
+            <button sx={styles.clearSearchButton} onClick={clearSearchTerm}>
+              <Icon iconPath={CLEAR_SEARCH_ICON} />
+            </button>
+          ) : null}
+        </div>
+      </Box>
+    </Flex>
   )
 }
 

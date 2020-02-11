@@ -4,7 +4,6 @@ export const header = {
   alignItems: 'center',
   backgroundColor: 'psWhite',
   boxShadow: 1,
-  color: 'psPrimary',
   position: 'fixed',
   padding: 3,
   width: '100%',

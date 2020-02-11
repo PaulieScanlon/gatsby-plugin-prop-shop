@@ -43,7 +43,7 @@ export const Logo = ({ logoSize }) => (
 
 Logo.defaultProps = {
   /** The default px value for the width and height */
-  logoSize: 58,
+  logoSize: 64,
 }
 
 Logo.propTypes = {

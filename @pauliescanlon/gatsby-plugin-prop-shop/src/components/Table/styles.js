@@ -1,5 +1,5 @@
 export const tableContainer = {
-  borderRadius: 0,
+  borderRadius: 1,
   boxShadow: 1,
   overflow: 'hidden',
   height: 300,
@@ -47,7 +47,7 @@ export const tbody = {
 export const tr = {
   'td:first-of-type, th:first-of-type': {
     borderRightStyle: 'solid',
-    borderRightWidth: 1,
+    borderRightWidth: 0,
     fontWeight: 'bold',
     left: 0,
     position: 'sticky',

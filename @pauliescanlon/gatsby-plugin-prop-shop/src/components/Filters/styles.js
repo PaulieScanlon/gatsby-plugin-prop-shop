@@ -16,7 +16,7 @@ export const filters = {
 
 export const checkboxLabel = {
   alignItems: 'center',
-  borderRadius: 0,
+  borderRadius: 1,
   cursor: 'pointer',
   color: 'psPrimary',
   display: 'flex',
@@ -34,7 +34,7 @@ export const checkbox = {
   '~ .checked-icon, ~ .un-checked-icon': {
     display: 'none',
     mr: 2,
-    borderRadius: 0,
+    borderRadius: 1,
   },
   ':checked ~ .checked-icon': {
     display: 'block',

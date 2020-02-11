@@ -5,18 +5,36 @@ const downArrow =
 
 export const search = {
   alignItems: 'center',
-  borderRadius: 1,
+  flexWrap: 'wrap',
+}
+
+const commonSearch = {
   backgroundColor: 'psWhite',
   boxShadow: 1,
   color: 'psTextLight',
   display: 'flex',
   fontFamily: 'psBody',
   fontSize: 0,
-  pl: 3,
-  pr: 3,
-  mb: 2,
-  ml: 'auto',
-  mr: 'auto',
+  p: 3,
+}
+
+export const selectContainer = {
+  ...commonSearch,
+  borderTopLeftRadius: 2,
+  borderBottomLeftRadius: 2,
+  borderTopRightRadius: [2, 2, 0, 0],
+  borderBottomRightRadius: [2, 2, 0, 0],
+  borderRightWidth: 0,
+  borderRightStyle: 'solid',
+  borderRightColor: 'psBackground',
+}
+
+export const inputContainer = {
+  ...commonSearch,
+  borderTopRightRadius: 2,
+  borderBottomRightRadius: 2,
+  borderTopLeftRadius: [2, 2, 0, 0],
+  borderBottomLeftRadius: [2, 2, 0, 0],
 }
 
 export const select = {
@@ -27,13 +45,14 @@ export const select = {
   backgroundPosition: 'center right',
   backgroundSize: 24,
   backgroundRepeat: 'no-repeat',
-  borderRadius: 0,
+  borderRadius: 1,
   color: 'psBlack',
   border: 'none',
   display: 'flex',
   fontFamily: ' inherit',
   fontSize: 'inherit',
   fontWeight: 'bold',
+  flexBasis: '100%',
   pt: 2,
   pl: 2,
   pb: 2,
@@ -57,7 +76,7 @@ export const divider = {
 
 export const input = {
   border: 'none',
-  borderRadius: 0,
+  borderRadius: 1,
   color: 'psTextDark',
   display: 'flex',
   fontFamily: 'inherit',

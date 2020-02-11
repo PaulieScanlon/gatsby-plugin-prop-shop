@@ -1,3 +1,5 @@
+import { commonFocus } from '../common'
+
 export const intro = {
   alignItems: 'center',
   flexDirection: 'column',
@@ -25,5 +27,9 @@ export const introText = {
     color: 'psPrimary',
     fontFamily: 'inherit',
     fontSize: 'inherit',
+    ':focus': {
+      outline: 'none',
+      ...commonFocus,
+    },
   },
 }

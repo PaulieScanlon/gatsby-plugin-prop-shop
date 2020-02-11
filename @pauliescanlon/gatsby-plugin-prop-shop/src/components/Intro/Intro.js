@@ -18,7 +18,7 @@ export const Intro = () => (
           href="http://www.github.com/pauliescanlon/gatsby-plugin-prop-shop"
           target="_blank"
         >
-          http://www.github.com/pauliescanlon/gatsby-plugin-prop-shop
+          https://github.com/PaulieScanlon/gatsby-plugin-prop-shop
         </a>
       </p>
     </div>

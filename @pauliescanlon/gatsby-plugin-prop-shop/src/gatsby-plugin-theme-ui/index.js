@@ -11,7 +11,6 @@ export default {
     psBackground: '#f5f7fc',
 
     psCommonDivider: '#f1f1f1',
-    psSearchDivider: '#f5f7fc',
     psTableBodyDivider: '#edf0f2',
     psTableHeadDivider: '#454545',
 
@@ -43,7 +42,7 @@ export default {
   },
   fontSizes: [12, 28],
   space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
-  radii: [4, 50],
+  radii: [0, 4, 50],
   borderWidths: [1, 2],
   shadows: ['0 0 0 2px', '0px 0px 25px -15px rgba(0,0,0,0.2)'],
 }
