@@ -3,6 +3,8 @@ module.exports = {
     title: `PropShop`,
     description: `PropShop provides an holistic view of all defined PropTypes in your project.`,
     author: `@pauliescanlon`,
+    url: 'https://gatsby-plugin-prop-shop.netlify.com/prop-shop',
+    ogImage: 'prop-shop-og-image.jpg',
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
