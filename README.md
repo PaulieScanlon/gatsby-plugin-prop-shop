@@ -1,5 +1,5 @@
 <a href="https://gatsby-plugin-prop-shop.netlify.com/prop-shop/" target="_blank">
-<img src="https://gatsby-plugin-prop-shop.netlify.com/images/prop-shop-og-image.jpg.jpg" alt="prop-shop-og-image image" />
+<img src="https://gatsby-plugin-prop-shop.netlify.com/images/prop-shop-og-image.jpg" alt="prop-shop-og-image image" />
 </a>
 
 # gatsby-plugin-prop-shop
