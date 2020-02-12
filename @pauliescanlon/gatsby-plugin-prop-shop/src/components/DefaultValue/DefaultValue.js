@@ -2,5 +2,5 @@
 import { jsx } from 'theme-ui'
 
 export const DefaultValue = ({ defaultValue }) => (
-  <span>{defaultValue ? defaultValue.value.replace(/`/gm, '') : ''}</span>
+  <span>{defaultValue ? defaultValue.value : ' - '}</span>
 )

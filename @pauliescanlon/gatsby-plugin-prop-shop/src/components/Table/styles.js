@@ -3,6 +3,7 @@ export const tableContainer = {
   boxShadow: 1,
   overflow: 'hidden',
   height: 300,
+  mb: 4,
 }
 
 export const tableWrapper = {

@@ -1,9 +1,9 @@
 export default {
   colors: {
     psPrimary: '#93cde8',
-    psSecondary: '#5f7bbc',
+    psSecondary: '#7c98d8 ',
     psTertiary: '#73b7e6',
-    psMuted: '#c3c9e2',
+    psMuted: '#d0d7f7',
 
     psTextLight: '#cccccc',
     psTextDark: '#666666',
@@ -40,7 +40,7 @@ export default {
     body: 1.5,
     heading: 1.125,
   },
-  fontSizes: [12, 28],
+  fontSizes: [12, 14, 28],
   space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
   radii: [0, 4, 50],
   borderWidths: [1, 2],

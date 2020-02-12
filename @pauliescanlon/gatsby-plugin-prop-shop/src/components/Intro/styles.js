@@ -13,7 +13,7 @@ export const introText = {
   fontFamily: 'psBody',
   fontSize: 0,
   h1: {
-    fontSize: 1,
+    fontSize: 2,
     fontWeight: 'light',
     lineHeight: 'heading',
   },

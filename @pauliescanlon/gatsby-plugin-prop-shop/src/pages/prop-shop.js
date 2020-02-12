@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx } from 'theme-ui'
+import { jsx, Flex, Box } from 'theme-ui'
 import { Fragment, useState } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 
@@ -11,9 +11,12 @@ import { Search } from '../components/Search'
 
 import { PropTable } from '../components/PropTable/PropTable'
 import { Filters } from '../components/Filters'
+import { StatPanel } from '../components/StatPanel/StatPanel'
 
 const defaultSearchFilter = 'name'
 const DISPLAY_NAME = 'file'
+
+const getPercentageUtil = (value, total) => Math.round((value / total) * 100)
 
 const PropShop = () => {
   const data = useStaticQuery(graphql`
@@ -49,6 +52,38 @@ const PropShop = () => {
 
   const { edges } = data.allComponentMetadata
 
+  const totalFiles = edges.length
+
+  const totalFilesNoProps = edges
+    .map(edge => edge)
+    .filter(edge => edge.node.props.length >= 1).length
+
+  const totalProps = edges
+    .reduce((items, item) => {
+      items = items || []
+      items.push(item.node.props.length)
+      return items
+    }, [])
+    .reduce((a, b) => a + b, 0)
+
+  const totalPropsNoDescription = edges
+    .map(edge => edge)
+    .reduce((items, item) => {
+      items = items || []
+      items.push(item.node.props.filter(prop => !prop.description.text).length)
+      return items
+    }, [])
+    .reduce((a, b) => a + b, 0)
+
+  const totalPropsNoDefaultValue = edges
+    .map(edge => edge)
+    .reduce((items, item) => {
+      items = items || []
+      items.push(item.node.props.filter(prop => !prop.defaultValue).length)
+      return items
+    }, [])
+    .reduce((a, b) => a + b, 0)
+
   const filterOptions = edges.reduce((items, item) => {
     if (item.node.props[0] && items.length < 1) {
       let propArray = Object.keys(item.node.props[0]).slice(1)
@@ -56,6 +91,15 @@ const PropShop = () => {
     }
     return items
   }, [])
+
+  const totalRequiredProps = edges
+    .map(edge => edge)
+    .reduce((items, item) => {
+      items = items || []
+      items.push(item.node.props.filter(prop => prop.required).length)
+      return items
+    }, [])
+    .reduce((a, b) => a + b, 0)
 
   const propData = edges
     .map(edge => edge)
@@ -138,6 +182,66 @@ const PropShop = () => {
           propData={searchTerm ? propData : edgeData}
           filterOptions={filterOptions}
         />
+        <Flex
+          sx={{
+            flexWrap: 'wrap',
+            ml: theme => `-${theme.space[2]}px`,
+            mr: theme => `-${theme.space[2]}px`,
+          }}
+        >
+          <Box
+            sx={{
+              mb: 4,
+              width: ['100%', '50%', '50%', '25%'],
+            }}
+          >
+            <StatPanel
+              text={`files without\nprops`}
+              value={totalFilesNoProps}
+              total={totalFiles}
+              percent={getPercentageUtil(totalFilesNoProps, totalFiles)}
+            />
+          </Box>
+          <Box
+            sx={{
+              mb: 4,
+              width: ['100%', '50%', '50%', '25%'],
+            }}
+          >
+            <StatPanel
+              text="props without descriptions"
+              value={totalPropsNoDescription}
+              total={totalProps}
+              percent={getPercentageUtil(totalPropsNoDescription, totalProps)}
+            />
+          </Box>
+          <Box
+            sx={{
+              mb: 4,
+              width: ['100%', '50%', '50%', '25%'],
+            }}
+          >
+            <StatPanel
+              text="props without default values"
+              value={totalPropsNoDefaultValue}
+              total={totalProps}
+              percent={getPercentageUtil(totalPropsNoDefaultValue, totalProps)}
+            />
+          </Box>
+          <Box
+            sx={{
+              mb: 4,
+              width: ['100%', '50%', '50%', '25%'],
+            }}
+          >
+            <StatPanel
+              text="have required props"
+              value={totalRequiredProps}
+              total={totalProps}
+              percent={getPercentageUtil(totalRequiredProps, totalProps)}
+            />
+          </Box>
+        </Flex>
       </Main>
     </Fragment>
   )

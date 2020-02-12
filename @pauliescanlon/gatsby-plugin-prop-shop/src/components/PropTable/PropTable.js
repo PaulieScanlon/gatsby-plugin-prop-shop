@@ -65,7 +65,8 @@ export const PropTable = ({ propData, filterOptions }) => (
                         <Td>
                           <DefaultValue defaultValue={prop.defaultValue} />
                         </Td>
-                        <Td>{prop.description.text || ''}</Td>
+                        {}
+                        <Td>{prop.description.text || ' - '}</Td>
                       </Tr>
                     )
                   })
