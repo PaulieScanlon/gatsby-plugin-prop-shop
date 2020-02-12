@@ -4,8 +4,10 @@ import PropTypes from 'prop-types'
 
 import * as styles from './styles'
 
-export const TableContainer = ({ children }) => (
-  <div sx={styles.tableContainer}>{children}</div>
+export const TableContainer = ({ children, ...rest }) => (
+  <div {...rest} sx={styles.tableContainer}>
+    {children}
+  </div>
 )
 
 export const TableWrapper = ({ children }) => (

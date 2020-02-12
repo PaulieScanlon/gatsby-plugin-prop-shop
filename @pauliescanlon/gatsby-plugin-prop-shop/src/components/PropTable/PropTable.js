@@ -18,8 +18,8 @@ import { PropType } from '../PropType'
 import { Required } from '../Required'
 import { DefaultValue } from '../DefaultValue'
 
-export const PropTable = ({ propData, filterOptions }) => (
-  <TableContainer>
+export const PropTable = ({ isTableExpanded, propData, filterOptions }) => (
+  <TableContainer style={{ height: isTableExpanded ? 'auto' : 400 }}>
     <TableWrapper>
       <Table>
         <Thead>
@@ -87,10 +87,10 @@ export const PropTable = ({ propData, filterOptions }) => (
 )
 
 PropTable.propTypes = {
+  /** Parent isTableExpanded state value */
+  isTableExpanded: PropTypes.bool,
   /** The result of graphql allComponentMetaData query + applied filter */
   propData: PropTypes.arrayOf(PropTypes.object),
   /** The names of the table headers */
   filterOptions: PropTypes.arrayOf(PropTypes.string),
-  /** The search term defined by the user input */
-  searchTerm: PropTypes.string,
 }

@@ -12,6 +12,7 @@ import { Search } from '../components/Search'
 import { PropTable } from '../components/PropTable/PropTable'
 import { Filters } from '../components/Filters'
 import { StatPanel } from '../components/StatPanel/StatPanel'
+import { ShowMore } from '../components/ShowMore/ShowMore'
 
 const defaultSearchFilter = 'name'
 const DISPLAY_NAME = 'file'
@@ -49,8 +50,11 @@ const PropShop = () => {
   const [searchTerm, setSearchTerm] = useState('')
   const [searchFilter, setSearchFilter] = useState(defaultSearchFilter)
   const [noPropsFilter, setNoPropsFilter] = useState(false)
+  const [isTableExpanded, setIsTableExpanded] = useState(false)
 
   const { edges } = data.allComponentMetadata
+
+  // TODO sort this mess out! a lot of those total calculations can be abstracted and composed
 
   const totalFiles = edges.length
 
@@ -104,7 +108,7 @@ const PropShop = () => {
   const propData = edges
     .map(edge => edge)
     .filter(edge => {
-      // TODO abstract this filter so it can be re-used in the table
+      // TODO abstract this filter so it can be re-used in the table, will help to enabled row hiding
       if (searchFilter === DISPLAY_NAME) {
         return edge.node.displayName
           .toLowerCase()
@@ -138,13 +142,13 @@ const PropShop = () => {
                 .includes(searchTerm.toLowerCase())
             )
           }
-          case 'description': {
-            return prop.description.text
-              .toLowerCase()
-              .includes(searchTerm.toLowerCase())
-          }
-
-          default: //
+          case 'description':
+            {
+              return prop.description.text
+                .toLowerCase()
+                .includes(searchTerm.toLowerCase())
+            }
+            å
         }
       })
     })
@@ -152,10 +156,6 @@ const PropShop = () => {
   const edgeData = edges
     .map(edge => edge)
     .filter(edge => (noPropsFilter ? edge.node.props.length >= 1 : edge))
-
-  // console.log(noPropsFilter)
-  // console.log(edgeData)
-  // console.log(propData)
 
   return (
     <Fragment>
@@ -178,9 +178,14 @@ const PropShop = () => {
         />
 
         <PropTable
+          isTableExpanded={isTableExpanded}
           searchTerm={searchTerm}
           propData={searchTerm ? propData : edgeData}
           filterOptions={filterOptions}
+        />
+        <ShowMore
+          isTableExpanded={isTableExpanded}
+          setIsTableExpanded={() => setIsTableExpanded(!isTableExpanded)}
         />
         <Flex
           sx={{
