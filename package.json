@@ -7,7 +7,7 @@
     "develop:plugin": "yarn workspace @pauliescanlon/gatsby-plugin-prop-shop develop",
     "build": "yarn workspace demo build",
     "develop": "yarn workspace demo develop",
-    "release": "node copy-readme.js"
+    "release": "node copy-readme.js && yarn workspace @pauliescanlon/gatsby-plugin-prop-shop publish"
   },
   "workspaces": [
     "@pauliescanlon/gatsby-plugin-prop-shop",
