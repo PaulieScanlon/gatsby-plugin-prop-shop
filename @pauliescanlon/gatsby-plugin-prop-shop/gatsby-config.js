@@ -1,18 +1,17 @@
-const path = require('path')
-
 module.exports = pluginOptions => {
-  const { source } = pluginOptions
+  const { source, debug } = pluginOptions
 
   if (!source) throw new Error('prop-shop needs a source')
 
   let filesystemSources = []
 
   const soureFilesystemOption = name => {
+    if (debug) console.log('        gatsby-plugin-prop-shop : source : ', name)
     return {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `${name}`,
-        path: path.resolve(`src/${name}`),
+        path: `${name}`,
       },
     }
   }

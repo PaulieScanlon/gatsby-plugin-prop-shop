@@ -36,7 +36,7 @@ module.exports = {
     {
       resolve: `@pauliescanlon/gatsby-plugin-prop-shop`,
       options: {
-        source: [`pages`, `images`, `components`],
+        source: [`src/pages`, `src/images`, `src/components`],
       },
     },
   ],
