@@ -23,8 +23,8 @@ export default {
     psWhite: '#ffffff',
     psBlack: '#000000',
     //
-    text: '#000000',
-    background: '#ffffff',
+    // text: '#000000',
+    // background: '#ffffff',
   },
   fonts: {
     psBody: 'system-ui, sans-serif',

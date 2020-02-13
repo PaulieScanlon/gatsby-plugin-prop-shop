@@ -25,10 +25,6 @@ module.exports = pluginOptions => {
   }
 
   return {
-    plugins: [
-      ...filesystemSources,
-      `gatsby-transformer-react-docgen`,
-      `gatsby-plugin-theme-ui`,
-    ],
+    plugins: [...filesystemSources, `gatsby-transformer-react-docgen`],
   }
 }
