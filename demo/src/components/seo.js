@@ -10,7 +10,7 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
 
-export const SEO = ({ description, lang, meta, title }) => {
+export const SEO = ({ lang }) => {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -19,6 +19,7 @@ export const SEO = ({ description, lang, meta, title }) => {
             title
             description
             author
+            keywords
             url
             ogImage
           }
@@ -27,19 +28,25 @@ export const SEO = ({ description, lang, meta, title }) => {
     `
   )
 
-  const metaDescription = description || site.siteMetadata.description
-  const { url, ogImage } = site.siteMetadata
+  const {
+    title,
+    description,
+    author,
+    keywords,
+    url,
+    ogImage,
+  } = site.siteMetadata
 
   return (
     <Helmet
       htmlAttributes={{
         lang,
       }}
-      title={site.siteMetadata.title}
+      title={title}
       meta={[
         {
           name: `description`,
-          content: metaDescription,
+          content: description,
         },
         {
           property: `og:title`,
@@ -47,7 +54,7 @@ export const SEO = ({ description, lang, meta, title }) => {
         },
         {
           property: `og:description`,
-          content: metaDescription,
+          content: description,
         },
         {
           property: `og:image`,
@@ -63,7 +70,7 @@ export const SEO = ({ description, lang, meta, title }) => {
         },
         {
           name: `twitter:creator`,
-          content: site.siteMetadata.author,
+          content: author,
         },
         {
           name: `twitter:title`,
@@ -71,27 +78,34 @@ export const SEO = ({ description, lang, meta, title }) => {
         },
         {
           name: `twitter:description`,
-          content: metaDescription,
+          content: description,
         },
         {
           name: `twitter:image`,
           content: `${url}/images/${ogImage}`,
         },
-      ].concat(meta)}
+        {
+          name: `keywords`,
+          content: keywords.join(', '),
+        },
+      ]}
     />
   )
 }
 
 SEO.defaultProps = {
   lang: `en`,
-  meta: [],
+  title: ``,
   description: ``,
+  author: ``,
+  keywords: [],
 }
 
 SEO.propTypes = {
-  description: PropTypes.string,
   lang: PropTypes.string,
-  /** The quick brown fox jimps over the lazy dog */
-  meta: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string,
+  description: PropTypes.string,
+  /** The quick brown fox jimps over the lazy dog */
+  author: PropTypes.string,
+  keywords: PropTypes.arrayOf(PropTypes.object),
 }
