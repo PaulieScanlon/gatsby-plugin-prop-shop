@@ -1,7 +1,7 @@
 {
   "name": "@pauliescanlon/gatsby-plugin-prop-shop",
   "author": "Paul Scanlon <pauliescanlon@gmail.com>",
-  "version": "0.0.0-alpha-1",
+  "version": "0.0.0-alpha-2",
   "main": "index.js",
   "scripts": {
     "build": "gatsby build",
