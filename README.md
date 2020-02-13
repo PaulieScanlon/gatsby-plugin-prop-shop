@@ -4,7 +4,9 @@
 
 # gatsby-plugin-prop-shop
 
-With `gatsby-plugin-prop-shop` you can get an holistic view of all defined PropTypes in your project.
+With **gatsby-plugin-prop-shop** you can get an holistic view of all defined PropTypes in your project.
+
+Oh, and there must be at least one `.js` file in your project containing `propTypes`
 
 ## 👁️ Preview
 
@@ -27,7 +29,7 @@ npm install gatsby-source-filesystem prop-types --save
 ### Setup
 
 ```js
-// gatsby.config
+// gatsby-config.js
 module.exports = {
   ...
   plugins: [
@@ -42,9 +44,18 @@ module.exports = {
 }
 ```
 
-`gatsby-plugin-prop-shop` will find all PropTypes for files found in the named directories in the `source` array in the config options.
+**gatsby-plugin-prop-shop** will find all PropTypes for files named in the `source` array.
 
-With that all setup you can continue to run either `gatsby develop` or `gatsby build` and then navigate to the `/prop-shop` page
+### Options
+
+| Option | Type            | Required | Default | Description                                        |
+| ------ | --------------- | -------- | ------- | -------------------------------------------------- |
+| source | array or string | yes      | null    | Where to find `.js` files with PropTypes           |
+| debug  | boolean         | no       | false   | Logs to console paths to the `.js` named in source |
+
+### Run it!
+
+You can now run either `gatsby develop` or `gatsby build / serve` and then navigate to the `/prop-shop` page
 
 ```sh
  ---------------------------------
@@ -52,10 +63,12 @@ With that all setup you can continue to run either `gatsby develop` or `gatsby b
  ---------------------------------
 ```
 
-If you're using PropShop in a theme you might need to be more explicit with where the source directories can be found, eg
+### Psst!
+
+If you're using **gatsby-plugin-prop-shop** in a theme you might need to be more explicit with where the `source` directories can be found eg;
 
 ```js
-// gatsby.config
+// gatsby-config.js
 module.exports = {
   ...
   plugins: [
@@ -69,3 +82,7 @@ module.exports = {
   ...
 }
 ```
+
+If you're using **gatsby-plugin-prop-shop** in your project i'd love to hear from you [@pauliescanlon](https://twitter.com/PaulieScanlon)
+
+[![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/P5P31B7G8)
