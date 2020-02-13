@@ -40,5 +40,11 @@ module.exports = {
         source: [`src/pages`, `src/images`, `src/components`],
       },
     },
+    {
+      resolve: 'gatsby-plugin-google-analytics',
+      options: {
+        trackingId: 'UA-76055934-7',
+      },
+    },
   ],
 }
