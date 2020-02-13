@@ -21,7 +21,7 @@ npm install @pauliescanlon/gatsby-plugin-prop-shop --save
 ### Install peer dependencies
 
 ```
-npm install gatsby-source-filesystem --save
+npm install gatsby-source-filesystem prop-types --save
 ```
 
 ### Setup
