@@ -1,7 +1,7 @@
 {
   "name": "@pauliescanlon/gatsby-plugin-prop-shop",
   "author": "Paul Scanlon <pauliescanlon@gmail.com>",
-  "version": "0.0.0-alpha-0",
+  "version": "0.0.0-alpha-1",
   "main": "index.js",
   "scripts": {
     "build": "gatsby build",
@@ -11,7 +11,7 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
-    "publish": "npm run build && npm login"
+    "publish": "npm login"
   },
   "repository": {
     "type": "git",

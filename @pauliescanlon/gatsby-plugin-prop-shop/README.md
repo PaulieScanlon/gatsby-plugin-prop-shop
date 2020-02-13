@@ -34,7 +34,7 @@ module.exports = {
     {
       resolve: `@pauliescanlon/gatsby-plugin-prop-shop`,
       options: {
-        source: [`pages`, `images`, `components`],
+        source: [`src/pages`, `src/images`, `src/components`],
       },
     },
   ]
@@ -50,4 +50,22 @@ With that all setup you can continue to run either `gatsby develop` or `gatsby b
  ---------------------------------
   http://localhost:8000/prop-shop
  ---------------------------------
+```
+
+If you're using PropShop in a theme you might need to be more explicit with where the source directories can be found, eg
+
+```js
+// gatsby.config
+module.exports = {
+  ...
+  plugins: [
+    {
+      resolve: `@pauliescanlon/gatsby-plugin-prop-shop`,
+      options: {
+        source: [`${__dirname}/src/components`],
+      },
+    },
+  ]
+  ...
+}
 ```
