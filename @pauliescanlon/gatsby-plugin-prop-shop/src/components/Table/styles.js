@@ -19,8 +19,9 @@ export const table = {
   fontFamily: 'psBody',
   fontSize: 0,
   textAlign: 'left',
-  padding: 0,
+  lineHeight: 'body',
   margin: 0,
+  padding: 0,
   width: '100%',
   'th, td': {
     padding: 3,

@@ -2,9 +2,12 @@
 import { jsx } from 'theme-ui'
 import PropTypes from 'prop-types'
 
+import * as styles from './styles'
+
 export const Icon = ({ iconPath, iconFill, iconSize, ...rest }) => (
   <svg
     {...rest}
+    sx={styles.svg}
     width={iconSize}
     height={iconSize}
     viewBox={`0 0 24 24`}
@@ -20,7 +23,7 @@ export const Icon = ({ iconPath, iconFill, iconSize, ...rest }) => (
 
 Icon.defaultProps = {
   /** The default px value for the width and height */
-  iconSize: 24,
+  iconSize: 22,
   /** The default fill css value */
   iconFill: 'currentColor',
 }
