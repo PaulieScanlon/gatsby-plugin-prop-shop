@@ -214,10 +214,13 @@ const PropShop = () => {
               }}
             >
               <StatPanel
-                text={`files without\nprops`}
-                value={totalFilesNoProps}
+                text={`files without\nproptypes`}
+                value={totalFiles - totalFilesNoProps}
                 total={totalFiles}
-                percent={getPercentageUtil(totalFilesNoProps, totalFiles)}
+                percent={getPercentageUtil(
+                  totalFiles - totalFilesNoProps,
+                  totalFiles
+                )}
               />
             </Box>
             <Box
@@ -256,7 +259,7 @@ const PropShop = () => {
               }}
             >
               <StatPanel
-                text="have required props"
+                text="props with required value"
                 value={totalRequiredProps}
                 total={totalProps}
                 percent={getPercentageUtil(totalRequiredProps, totalProps)}
