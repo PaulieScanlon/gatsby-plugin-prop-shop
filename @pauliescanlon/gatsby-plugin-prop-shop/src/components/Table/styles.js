@@ -1,4 +1,5 @@
 export const tableContainer = {
+  backgroundColor: 'psWhite',
   borderRadius: 1,
   boxShadow: 1,
   overflow: 'hidden',
@@ -77,4 +78,5 @@ export const th = {
 
 export const td = {
   whiteSpace: 'nowrap',
+  borderBottom: 'none',
 }

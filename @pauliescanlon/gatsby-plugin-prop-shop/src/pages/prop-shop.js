@@ -157,6 +157,9 @@ const PropShop = () => {
     .map(edge => edge)
     .filter(edge => (noPropsFilter ? edge.node.props.length >= 1 : edge))
 
+  // console.log(propData)
+  // console.log(edgeData)
+
   return (
     <Fragment>
       <Header />
@@ -183,13 +186,18 @@ const PropShop = () => {
           propData={searchTerm ? propData : edgeData}
           filterOptions={filterOptions}
         />
-        <ShowMore
-          isTableExpanded={isTableExpanded}
-          setIsTableExpanded={() => setIsTableExpanded(!isTableExpanded)}
-        />
+        {(searchTerm && propData.length > 1) ||
+        (!searchTerm && edgeData.length > 1) ? (
+          <ShowMore
+            isTableExpanded={isTableExpanded}
+            setIsTableExpanded={() => setIsTableExpanded(!isTableExpanded)}
+          />
+        ) : null}
+
         <Flex
           sx={{
             flexWrap: 'wrap',
+            mt: 4,
             ml: theme => `-${theme.space[2]}px`,
             mr: theme => `-${theme.space[2]}px`,
           }}

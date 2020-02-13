@@ -104,8 +104,8 @@ SEO.defaultProps = {
 SEO.propTypes = {
   lang: PropTypes.string,
   title: PropTypes.string,
-  description: PropTypes.string,
   /** The quick brown fox jimps over the lazy dog */
+  description: PropTypes.string,
   author: PropTypes.string,
-  keywords: PropTypes.arrayOf(PropTypes.object),
+  keywords: PropTypes.arrayOf(PropTypes.string),
 }

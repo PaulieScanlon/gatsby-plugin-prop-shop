@@ -10,7 +10,6 @@ export const showMoreButton = {
   display: 'inline-flex',
   fontFamily: 'psBody',
   fontSize: 0,
-  mb: 4,
   p: 2,
   ':focus': {
     outline: 'none',

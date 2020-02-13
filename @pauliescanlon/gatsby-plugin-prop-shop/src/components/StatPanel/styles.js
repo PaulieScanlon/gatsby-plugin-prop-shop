@@ -27,6 +27,7 @@ export const text = {
   color: 'psTextLight',
   fontFamily: 'inherit',
   fontSize: 0,
+  lineHeight: 'normal',
   textTransform: 'uppercase',
   mb: 2,
 }
