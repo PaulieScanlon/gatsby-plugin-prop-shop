@@ -13,6 +13,7 @@ export const introText = {
   fontFamily: 'psBody',
   fontSize: 0,
   h1: {
+    // TODO might be a problem with the line-height here, check localhost blog
     fontSize: 2,
     fontWeight: 'light',
     lineHeight: 'heading',
