@@ -71,15 +71,15 @@ export const Search = ({
 
 Search.propTypes = {
   /** Parent searchTerm state value */
-  searchTerm: PropTypes.string,
+  searchTerm: PropTypes.string.isRequired,
   /** Sets parent searchTerm state value */
   setSearchTerm: PropTypes.func.isRequired,
   /** Clear parent searchTerm state value */
-  clearSearchTerm: PropTypes.func,
+  clearSearchTerm: PropTypes.func.isRequired,
   /** Parent searchFilter state value */
-  searchFilter: PropTypes.string,
+  searchFilter: PropTypes.string.isRequired,
   /** Sets parent searchFilter state value */
-  setSearchFilter: PropTypes.func,
+  setSearchFilter: PropTypes.func.isRequired,
   /** Array of filter-able values taken from GraphQL query */
-  filterOptions: PropTypes.arrayOf(PropTypes.string),
+  filterOptions: PropTypes.arrayOf(PropTypes.string).isRequired,
 }

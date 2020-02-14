@@ -70,7 +70,7 @@ export const PropTable = ({ isTableExpanded, propData, filterOptions }) => (
                           <Td>
                             <DefaultValue defaultValue={prop.defaultValue} />
                           </Td>
-                          {}
+
                           <Td>{prop.description.text || ' - '}</Td>
                         </Tr>
                       )
@@ -95,10 +95,12 @@ export const PropTable = ({ isTableExpanded, propData, filterOptions }) => (
 )
 
 PropTable.propTypes = {
+  /** Parent searchTerm state value */
+  searchTerm: PropTypes.string.isRequired,
   /** Parent isTableExpanded state value */
-  isTableExpanded: PropTypes.bool,
+  isTableExpanded: PropTypes.bool.isRequired,
   /** The result of GraphQL allComponentMetaData query + applied filter */
-  propData: PropTypes.arrayOf(PropTypes.object),
+  propData: PropTypes.arrayOf(PropTypes.object).isRequired,
   /** Array of filter-able values taken from GraphQL query */
-  filterOptions: PropTypes.arrayOf(PropTypes.string),
+  filterOptions: PropTypes.arrayOf(PropTypes.string).isRequired,
 }

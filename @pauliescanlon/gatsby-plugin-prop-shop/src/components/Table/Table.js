@@ -3,7 +3,6 @@ import { jsx } from 'theme-ui'
 import PropTypes from 'prop-types'
 
 import * as styles from './styles'
-import { PropType } from '../PropType'
 
 export const TableContainer = ({ children, ...rest }) => (
   <div {...rest} sx={styles.tableContainer}>
@@ -13,9 +12,9 @@ export const TableContainer = ({ children, ...rest }) => (
 
 TableContainer.propTypes = {
   /** React children */
-  children: PropType.element,
+  children: PropTypes.any,
   /** Rest object */
-  rest: PropType.any,
+  rest: PropTypes.object,
 }
 
 export const TableWrapper = ({ children }) => (
@@ -24,7 +23,7 @@ export const TableWrapper = ({ children }) => (
 
 TableWrapper.propTypes = {
   /** React children */
-  children: PropType.element,
+  children: PropTypes.any,
 }
 
 export const Table = ({ children }) => (
@@ -33,7 +32,7 @@ export const Table = ({ children }) => (
 
 Table.propTypes = {
   /** React children */
-  children: PropType.element,
+  children: PropTypes.any,
 }
 
 export const Thead = ({ children }) => (
@@ -42,7 +41,7 @@ export const Thead = ({ children }) => (
 
 Thead.propTypes = {
   /** React children */
-  children: PropType.element,
+  children: PropTypes.any,
 }
 
 export const Tbody = ({ children }) => (
@@ -51,7 +50,7 @@ export const Tbody = ({ children }) => (
 
 Tbody.propTypes = {
   /** React children */
-  children: PropType.element,
+  children: PropTypes.any,
 }
 
 export const Tr = ({ children, ...rest }) => (
@@ -62,9 +61,9 @@ export const Tr = ({ children, ...rest }) => (
 
 Tr.propTypes = {
   /** React children */
-  children: PropType.element,
+  children: PropTypes.any,
   /** Rest object */
-  rest: PropType.any,
+  rest: PropTypes.object,
 }
 
 export const Th = ({ children, ...rest }) => (
@@ -75,9 +74,9 @@ export const Th = ({ children, ...rest }) => (
 
 Th.propTypes = {
   /** React children */
-  children: PropType.element,
+  children: PropTypes.any,
   /** Rest object */
-  rest: PropType.any,
+  rest: PropTypes.object,
 }
 
 export const Td = ({ children, ...rest }) => (
@@ -88,7 +87,7 @@ export const Td = ({ children, ...rest }) => (
 
 Td.propTypes = {
   /** React children */
-  children: PropType.element,
+  children: PropTypes.any,
   /** Rest object */
-  rest: PropType.any,
+  rest: PropTypes.object,
 }

@@ -15,9 +15,8 @@ import { PropTable } from '../components/PropTable/PropTable'
 import { Filters } from '../components/Filters'
 import { StatPanel } from '../components/StatPanel/StatPanel'
 import { ShowMore } from '../components/ShowMore/ShowMore'
-
-const defaultSearchFilter = 'name'
-const DISPLAY_NAME = 'file'
+import { propDataFilter } from '../utils/prop-data-filter'
+import { defaultSearchFilter, DISPLAY_NAME } from '../const'
 
 const getPercentageUtil = (value, total) => Math.round((value / total) * 100)
 
@@ -109,51 +108,7 @@ const PropShop = () => {
 
   const propData = edges
     .map(edge => edge)
-    .filter(edge => {
-      // TODO abstract this filter so it can be re-used in the table, will help to enabled row hiding
-      if (searchFilter === DISPLAY_NAME) {
-        return edge.node.displayName
-          .toLowerCase()
-          .includes(searchTerm.toLowerCase())
-      }
-      return edge.node.props.some(prop => {
-        switch (searchFilter) {
-          case 'id': {
-            return prop.id.toLowerCase().includes(searchTerm.toLowerCase())
-          }
-
-          case 'name': {
-            return prop.name.toLowerCase().includes(searchTerm.toLowerCase())
-          }
-
-          case 'type': {
-            return prop.type.name
-              .toLowerCase()
-              .includes(searchTerm.toLowerCase())
-          }
-
-          case 'required': {
-            return prop.required.toString().includes(searchTerm.toLowerCase())
-          }
-
-          case 'defaultValue': {
-            return (
-              prop.defaultValue &&
-              prop.defaultValue.value
-                .toLowerCase()
-                .includes(searchTerm.toLowerCase())
-            )
-          }
-          case 'description':
-            {
-              return prop.description.text
-                .toLowerCase()
-                .includes(searchTerm.toLowerCase())
-            }
-            å
-        }
-      })
-    })
+    .filter(edge => propDataFilter(searchFilter, searchTerm, edge))
 
   const edgeData = edges
     .map(edge => edge)
