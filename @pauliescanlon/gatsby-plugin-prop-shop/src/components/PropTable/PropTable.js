@@ -35,7 +35,7 @@ export const PropTable = ({ isTableExpanded, propData, filterOptions }) => (
             </Tr>
           </Thead>
           <Tbody>
-            {propData.map((edge, propDataIndex) => {
+            {propData.map((node, propDataIndex) => {
               return (
                 <Fragment key={propDataIndex}>
                   <Tr
@@ -43,13 +43,13 @@ export const PropTable = ({ isTableExpanded, propData, filterOptions }) => (
                       propDataIndex % 2 ? 'odd' : 'even'
                     }`}
                   >
-                    <Td>{edge.node.displayName}</Td>
+                    <Td>{node.displayName}</Td>
                     {filterOptions.map((_, headderIndex) =>
                       headderIndex === 0 ? null : <Td key={headderIndex}></Td>
                     )}
                   </Tr>
-                  {edge.node.props.length ? (
-                    edge.node.props.map((prop, propIndex) => {
+                  {node.props.length ? (
+                    node.props.map((prop, propIndex) => {
                       return (
                         <Tr
                           className={`tr-${propDataIndex % 2 ? 'odd' : 'even'}`}
@@ -57,7 +57,7 @@ export const PropTable = ({ isTableExpanded, propData, filterOptions }) => (
                         >
                           <Td>
                             <span style={{ opacity: 0 }}>
-                              {edge.node.displayName}
+                              {node.displayName}
                             </span>
                           </Td>
                           <Td>{prop.name}</Td>
@@ -95,8 +95,6 @@ export const PropTable = ({ isTableExpanded, propData, filterOptions }) => (
 )
 
 PropTable.propTypes = {
-  /** Parent searchTerm state value */
-  searchTerm: PropTypes.string.isRequired,
   /** Parent isTableExpanded state value */
   isTableExpanded: PropTypes.bool.isRequired,
   /** The result of GraphQL allComponentMetaData query + applied filter */

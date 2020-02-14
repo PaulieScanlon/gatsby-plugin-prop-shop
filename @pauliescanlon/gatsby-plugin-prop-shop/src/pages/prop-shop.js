@@ -107,15 +107,30 @@ const PropShop = () => {
     .reduce((a, b) => a + b, 0)
 
   const propData = edges
-    .map(edge => edge)
-    .filter(edge => propDataFilter(searchFilter, searchTerm, edge))
-
-  const edgeData = edges
-    .map(edge => edge)
-    .filter(edge => (noPropsFilter ? edge.node.props.length >= 1 : edge))
+    .map(edge => {
+      return {
+        id: edge.node.id,
+        displayName: edge.node.displayName,
+        props:
+          searchTerm.length > 0 && searchFilter !== DISPLAY_NAME
+            ? edge.node.props.filter(prop =>
+                propDataFilter(searchFilter, searchTerm, prop)
+              )
+            : edge.node.props,
+      }
+    })
+    .filter(node => {
+      if (searchFilter === DISPLAY_NAME) {
+        return node.displayName.toLowerCase().includes(searchTerm.toLowerCase())
+      }
+      return searchTerm.length > 0
+        ? node.props.some(prop =>
+            propDataFilter(searchFilter, searchTerm, prop)
+          )
+        : node
+    })
 
   // console.log(propData)
-  // console.log(edgeData)
 
   return (
     <Fragment>
@@ -141,13 +156,11 @@ const PropShop = () => {
           />
 
           <PropTable
-            isTableExpanded={isTableExpanded}
-            searchTerm={searchTerm}
-            propData={searchTerm ? propData : edgeData}
+            propData={propData}
             filterOptions={filterOptions}
+            isTableExpanded={isTableExpanded}
           />
-          {(searchTerm && propData.length > 1) ||
-          (!searchTerm && edgeData.length > 1) ? (
+          {propData.length > 1 ? (
             <ShowMore
               isTableExpanded={isTableExpanded}
               setIsTableExpanded={() => setIsTableExpanded(!isTableExpanded)}
