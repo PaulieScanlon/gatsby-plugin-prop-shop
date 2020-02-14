@@ -1,4 +1,4 @@
-import { commonFocus } from '../common'
+import { commonFocus, commonFont } from '../common'
 
 export const intro = {
   alignItems: 'center',
@@ -10,24 +10,23 @@ export const intro = {
 }
 
 export const introText = {
-  fontFamily: 'psBody',
-  fontSize: 0,
+  ...commonFont,
   h1: {
+    ...commonFont,
     // TODO might be a problem with the line-height here, check localhost blog
+    color: 'psTextDark',
     fontSize: 2,
     fontWeight: 'light',
     lineHeight: 'heading',
+    m: theme => `${theme.space[3]}px 0px`,
   },
   p: {
+    ...commonFont,
     color: 'psTextDark',
-    fontFamily: 'inherit',
-    fontSize: 'inherit',
-    lineHeight: 'body',
   },
   a: {
+    ...commonFont,
     color: 'psPrimary',
-    fontFamily: 'inherit',
-    fontSize: 'inherit',
     ':focus': {
       outline: 'none',
       ...commonFocus,

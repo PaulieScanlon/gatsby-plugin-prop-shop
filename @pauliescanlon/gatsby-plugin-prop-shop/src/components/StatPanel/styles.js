@@ -1,10 +1,11 @@
+import { commonFont } from '../common'
+
 export const statPanel = {
   boxShadow: 1,
   backgroundColor: 'psWhite',
   borderRadius: 1,
   display: 'flex',
   justifyContent: 'space-between',
-  fontFamily: 'psBody',
   height: '100%',
   p: 3,
   ml: 2,
@@ -24,22 +25,18 @@ export const chart = {
 }
 
 export const text = {
-  color: 'psTextLight',
-  fontFamily: 'inherit',
-  fontSize: 0,
-  lineHeight: 'normal',
+  ...commonFont,
   textTransform: 'uppercase',
   mb: 2,
 }
 
 export const number = {
+  ...commonFont,
   color: 'psBlack',
-  fontFamily: 'inherit',
   fontSize: 2,
 }
 
 export const total = {
-  color: 'psTextLight',
-  fontFamily: 'inherit',
+  ...commonFont,
   fontSize: 1,
 }

@@ -10,7 +10,14 @@ const IndexPage = () => (
     <h1 sx={{ color: 'primary' }}>Hi people</h1>
     <p>Welcome to your new Gatsby site.</p>
     <p>Now go build something great.</p>
-    <Link to="/prop-shop/">Go to PropShop</Link>
+
+    <h2 sx={{ color: 'primary', mb: 0 }}>PropShop</h2>
+    <p sx={{ display: 'inline-flex' }}>
+      To see all PropTypes used in the plugin visit the &nbsp;
+    </p>
+    <Link sx={{ display: 'inline-block' }} to="/prop-shop/">
+      PropShop
+    </Link>
     <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
       <Image />
     </div>

@@ -97,8 +97,8 @@ export const PropTable = ({ isTableExpanded, propData, filterOptions }) => (
 PropTable.propTypes = {
   /** Parent isTableExpanded state value */
   isTableExpanded: PropTypes.bool,
-  /** The result of graphql allComponentMetaData query + applied filter */
+  /** The result of GraphQL allComponentMetaData query + applied filter */
   propData: PropTypes.arrayOf(PropTypes.object),
-  /** The names of the table headers */
+  /** Array of filter-able values taken from GraphQL query */
   filterOptions: PropTypes.arrayOf(PropTypes.string),
 }

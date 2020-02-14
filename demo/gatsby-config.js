@@ -1,3 +1,5 @@
+const path = require('path')
+
 module.exports = {
   siteMetadata: {
     title: `PropShop`,
@@ -37,7 +39,14 @@ module.exports = {
     {
       resolve: `@pauliescanlon/gatsby-plugin-prop-shop`,
       options: {
-        source: [`src/pages`, `src/images`, `src/components`],
+        debug: true,
+        source: [
+          `${path.join(
+            process.cwd(),
+            '../@pauliescanlon/gatsby-plugin-prop-shop/src/components'
+          )}`,
+        ],
+        // source: [`src/pages`, `src/images`, `src/components`],
       },
     },
     {

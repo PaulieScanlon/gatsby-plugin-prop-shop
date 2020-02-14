@@ -1,4 +1,4 @@
-import { commonFocus } from '../common'
+import { commonFocus, commonFont } from '../common'
 
 const downArrow =
   'data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" fill="%2393cde8"/><path d="M0 0h24v24H0V0z" fill="none"/></svg>'
@@ -9,12 +9,10 @@ export const search = {
 }
 
 const commonSearch = {
+  ...commonFont,
   backgroundColor: 'psWhite',
   boxShadow: 1,
-  color: 'psTextLight',
   display: 'flex',
-  fontFamily: 'psBody',
-  fontSize: 0,
   p: 3,
 }
 
@@ -38,6 +36,7 @@ export const inputContainer = {
 }
 
 export const select = {
+  ...commonFont,
   alignItems: 'center',
   appearance: 'none',
   backgroundColor: 'psWhite',
@@ -49,11 +48,8 @@ export const select = {
   color: 'psBlack',
   border: 'none',
   display: 'flex',
-  fontFamily: ' inherit',
-  fontSize: 'inherit',
   fontWeight: 'bold',
   flexBasis: '100%',
-  lineHeight: 'body',
   ml: 2,
   mr: 2,
   pt: 2,
@@ -76,14 +72,12 @@ export const divider = {
 }
 
 export const input = {
+  ...commonFont,
   border: 'none',
   borderRadius: 1,
   color: 'psTextDark',
   display: 'flex',
-  fontFamily: 'inherit',
-  fontSize: 'inherit',
   flexBasis: '100%',
-  lineHeight: 'body',
   ml: 2,
   mr: 2,
   p: 2,

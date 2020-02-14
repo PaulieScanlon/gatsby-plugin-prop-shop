@@ -16,7 +16,6 @@ export const table = {
   borderCollapse: 'separate',
   borderSpacing: 0,
   color: 'psTextDark',
-  fontFamily: 'psBody',
   fontSize: 0,
   textAlign: 'left',
   lineHeight: 'body',

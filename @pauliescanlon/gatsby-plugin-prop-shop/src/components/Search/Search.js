@@ -80,6 +80,6 @@ Search.propTypes = {
   searchFilter: PropTypes.string,
   /** Sets parent searchFilter state value */
   setSearchFilter: PropTypes.func,
-  /** list of TableHeader values taken from graphql query*/
+  /** Array of filter-able values taken from GraphQL query */
   filterOptions: PropTypes.arrayOf(PropTypes.string),
 }

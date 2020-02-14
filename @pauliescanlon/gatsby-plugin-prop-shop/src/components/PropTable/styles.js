@@ -1,8 +1,10 @@
+import { commonFont } from '../common'
+
 export const noDataText = {
+  ...commonFont,
   alignItems: 'center',
   color: 'psTextDark',
   display: 'flex',
-  fontFamily: 'psBody',
   fontSize: 1,
   p: 4,
   justifyContent: 'center',

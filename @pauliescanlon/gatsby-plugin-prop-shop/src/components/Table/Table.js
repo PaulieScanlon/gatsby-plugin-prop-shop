@@ -3,6 +3,7 @@ import { jsx } from 'theme-ui'
 import PropTypes from 'prop-types'
 
 import * as styles from './styles'
+import { PropType } from '../PropType'
 
 export const TableContainer = ({ children, ...rest }) => (
   <div {...rest} sx={styles.tableContainer}>
@@ -10,16 +11,29 @@ export const TableContainer = ({ children, ...rest }) => (
   </div>
 )
 
+TableContainer.propTypes = {
+  /** React children */
+  children: PropType.element,
+  /** Rest object */
+  rest: PropType.any,
+}
+
 export const TableWrapper = ({ children }) => (
   <div sx={styles.tableWrapper}>{children}</div>
 )
+
+TableWrapper.propTypes = {
+  /** React children */
+  children: PropType.element,
+}
 
 export const Table = ({ children }) => (
   <table sx={styles.table}>{children}</table>
 )
 
 Table.propTypes = {
-  children: PropTypes.node,
+  /** React children */
+  children: PropType.element,
 }
 
 export const Thead = ({ children }) => (
@@ -27,7 +41,8 @@ export const Thead = ({ children }) => (
 )
 
 Thead.propTypes = {
-  children: PropTypes.node,
+  /** React children */
+  children: PropType.element,
 }
 
 export const Tbody = ({ children }) => (
@@ -35,7 +50,8 @@ export const Tbody = ({ children }) => (
 )
 
 Tbody.propTypes = {
-  children: PropTypes.node,
+  /** React children */
+  children: PropType.element,
 }
 
 export const Tr = ({ children, ...rest }) => (
@@ -45,7 +61,10 @@ export const Tr = ({ children, ...rest }) => (
 )
 
 Tr.propTypes = {
-  children: PropTypes.node,
+  /** React children */
+  children: PropType.element,
+  /** Rest object */
+  rest: PropType.any,
 }
 
 export const Th = ({ children, ...rest }) => (
@@ -55,7 +74,10 @@ export const Th = ({ children, ...rest }) => (
 )
 
 Th.propTypes = {
-  children: PropTypes.node,
+  /** React children */
+  children: PropType.element,
+  /** Rest object */
+  rest: PropType.any,
 }
 
 export const Td = ({ children, ...rest }) => (
@@ -65,5 +87,8 @@ export const Td = ({ children, ...rest }) => (
 )
 
 Td.propTypes = {
-  children: PropTypes.node,
+  /** React children */
+  children: PropType.element,
+  /** Rest object */
+  rest: PropType.any,
 }

@@ -1,6 +1,7 @@
-import { commonFocus } from '../common'
+import { commonFocus, commonFont } from '../common'
 
 export const showMoreButton = {
+  ...commonFont,
   alignItems: 'center',
   backgroundColor: 'psBackground',
   border: 'none',
@@ -8,8 +9,6 @@ export const showMoreButton = {
   cursor: 'pointer',
   color: 'psPrimary',
   display: 'inline-flex',
-  fontFamily: 'psBody',
-  fontSize: 0,
   p: 2,
   ':focus': {
     outline: 'none',
@@ -18,6 +17,7 @@ export const showMoreButton = {
 }
 
 export const text = {
+  ...commonFont,
+  color: 'inherit',
   textTransform: 'capitalize',
-  pb: 1,
 }

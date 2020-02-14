@@ -1,11 +1,10 @@
-import { commonFocus } from '../common'
+import { commonFocus, commonFont } from '../common'
 
 export const filters = {
+  ...commonFont,
   alignItems: 'center',
   color: 'psTextLight',
   display: 'flex',
-  fontFamily: 'psBody',
-  fontSize: 0,
   marginLeft: 'auto',
   marginRight: 'auto',
   mb: 4,
@@ -51,5 +50,6 @@ export const checkbox = {
 }
 
 export const labelText = {
+  ...commonFont,
   color: 'psTextDark',
 }

@@ -22,13 +22,15 @@ export const Icon = ({ iconPath, iconFill, iconSize, ...rest }) => (
 )
 
 Icon.defaultProps = {
-  /** The default px value for the width and height */
   iconSize: 22,
-  /** The default fill css value */
   iconFill: 'currentColor',
 }
 
 Icon.propTypes = {
   /** Material Icon svg path */
   iconPath: PropTypes.string.isRequired,
+  /** The default px value for the width and height */
+  iconSize: PropTypes.number,
+  /** The default fill css value */
+  iconFill: PropTypes.string,
 }
