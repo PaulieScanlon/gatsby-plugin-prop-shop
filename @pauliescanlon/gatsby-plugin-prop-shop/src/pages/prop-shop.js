@@ -126,6 +126,12 @@ const PropShop = () => {
           )
         : node
     })
+    .filter(node => {
+      if (noPropsFilter) {
+        return node.props.length >= 1
+      }
+      return node
+    })
 
   // console.log(totals)
   // console.log(filterOptions)
