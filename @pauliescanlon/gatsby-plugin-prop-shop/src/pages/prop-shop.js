@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx, Flex, Box } from 'theme-ui'
-import { Fragment, useState } from 'react'
+import { useState } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { ThemeProvider } from 'theme-ui'
 import theme from '../theme'
@@ -25,6 +25,8 @@ import {
   DEFAULT_VALUE,
   DESCRIPTION,
 } from '../const'
+
+import * as styles from './styles'
 
 const getPercentageUtil = (value, total) => Math.round((value / total) * 100)
 
@@ -155,7 +157,7 @@ const PropShop = () => {
   ]
 
   return (
-    <Fragment>
+    <div sx={styles.page}>
       <ThemeProvider theme={theme}>
         <Header />
         <Main>
@@ -253,7 +255,7 @@ const PropShop = () => {
           </Flex>
         </Main>
       </ThemeProvider>
-    </Fragment>
+    </div>
   )
 }
 
