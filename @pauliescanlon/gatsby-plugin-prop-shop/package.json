@@ -38,7 +38,7 @@
     "gatsby",
     "gatsby-plugin"
   ],
-  "description": "...",
+  "description": "gatsby-plugin-prop-shop provides an holistic view of all defined PropTypes or type definitions in your Gatsby project",
   "bugs": {
     "url": "https://github.com/PaulieScanlon/gatsby-plugin-prop-shop/issues"
   },
