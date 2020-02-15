@@ -102,7 +102,7 @@ export const PropTable = ({
 )
 
 PropTable.propTypes = {
-  // /** Parent searchTerm state value */
+  /** Parent searchTerm state value */
   searchTerm: PropTypes.string.isRequired,
   /** Parent isTableExpanded state value */
   isTableExpanded: PropTypes.bool.isRequired,

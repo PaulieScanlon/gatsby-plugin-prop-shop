@@ -23,6 +23,7 @@ export const introText = {
   p: {
     ...commonFont,
     color: 'psTextDark',
+    margin: theme => `${theme.space[3]}px 0px`,
   },
   a: {
     ...commonFont,
