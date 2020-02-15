@@ -26,7 +26,7 @@ import {
   DESCRIPTION,
 } from '../const'
 
-import * as styles from './styles'
+import { page } from '../components/common'
 
 const getPercentageUtil = (value, total) => Math.round((value / total) * 100)
 
@@ -157,7 +157,7 @@ const PropShop = () => {
   ]
 
   return (
-    <div sx={styles.page}>
+    <div sx={page}>
       <ThemeProvider theme={theme}>
         <Header />
         <Main>
