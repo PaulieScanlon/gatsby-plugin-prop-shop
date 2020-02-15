@@ -16,7 +16,15 @@ import { Filters } from '../components/Filters'
 import { StatPanel } from '../components/StatPanel/StatPanel'
 import { ShowMore } from '../components/ShowMore/ShowMore'
 import { propDataFilter } from '../utils/prop-data-filter'
-import { defaultSearchFilter, DISPLAY_NAME } from '../const'
+import {
+  DEFAULT_SEARCH_FILTER,
+  DISPLAY_NAME,
+  NAME,
+  TYPE,
+  REQUIRED,
+  DEFAULT_VALUE,
+  DESCRIPTION,
+} from '../const'
 
 const getPercentageUtil = (value, total) => Math.round((value / total) * 100)
 
@@ -49,7 +57,7 @@ const PropShop = () => {
   `)
 
   const [searchTerm, setSearchTerm] = useState('')
-  const [searchFilter, setSearchFilter] = useState(defaultSearchFilter)
+  const [searchFilter, setSearchFilter] = useState(DEFAULT_SEARCH_FILTER)
   const [noPropsFilter, setNoPropsFilter] = useState(false)
   const [isTableExpanded, setIsTableExpanded] = useState(false)
 
@@ -95,14 +103,6 @@ const PropShop = () => {
     }
   }, {})
 
-  const filterOptions = edges.reduce((items, item) => {
-    if (item.node.props[0] && items.length < 1) {
-      let propArray = Object.keys(item.node.props[0]).slice(1)
-      items.push(DISPLAY_NAME, ...propArray)
-    }
-    return items
-  }, [])
-
   const propData = edges
     .map(edge => {
       return {
@@ -134,7 +134,6 @@ const PropShop = () => {
     })
 
   // console.log(totals)
-  // console.log(filterOptions)
   // console.log(propData)
 
   const {
@@ -145,6 +144,15 @@ const PropShop = () => {
     propsNoDefaultValue,
     propsRequired,
   } = totals
+
+  const filterOptions = [
+    DISPLAY_NAME,
+    NAME,
+    TYPE,
+    REQUIRED,
+    DEFAULT_VALUE,
+    DESCRIPTION,
+  ]
 
   return (
     <Fragment>

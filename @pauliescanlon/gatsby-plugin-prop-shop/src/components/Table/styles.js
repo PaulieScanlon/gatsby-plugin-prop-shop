@@ -1,4 +1,7 @@
+import { commonFont } from '../common'
+
 export const tableContainer = {
+  ...commonFont,
   backgroundColor: 'psWhite',
   borderRadius: 1,
   boxShadow: 1,
