@@ -55,39 +55,45 @@ const PropShop = () => {
 
   const { edges } = data.allComponentMetadata
 
-  // TODO sort this mess out! a lot of those total calculations can be abstracted and composed
+  const totals = edges.reduce((totals, edge) => {
+    totals = {
+      totalFiles: totals.totalFiles || 0,
+      totalProps: totals.totalProps || 0,
+      filesNoProps: totals.filesNoProps || 0,
+      propsNoDescription: totals.propsNoDescription || 0,
+      propsNoDefaultValue: totals.propsNoDefaultValue || 0,
+      propsRequired: totals.propsRequired || 0,
+    }
 
-  const totalFiles = edges.length
+    totals.totalFiles++
 
-  const totalFilesNoProps = edges
-    .map(edge => edge)
-    .filter(edge => edge.node.props.length >= 1).length
+    if (!edge.node.props.length >= 1) {
+      totals.filesNoProps++
+    }
 
-  const totalProps = edges
-    .reduce((items, item) => {
-      items = items || []
-      items.push(item.node.props.length)
-      return items
-    }, [])
-    .reduce((a, b) => a + b, 0)
+    edge.node.props.filter(prop => {
+      totals.totalProps++
 
-  const totalPropsNoDescription = edges
-    .map(edge => edge)
-    .reduce((items, item) => {
-      items = items || []
-      items.push(item.node.props.filter(prop => !prop.description.text).length)
-      return items
-    }, [])
-    .reduce((a, b) => a + b, 0)
+      if (!prop.description.text) {
+        totals.propsNoDescription++
+      }
+      if (!prop.defaultValue) {
+        totals.propsNoDefaultValue++
+      }
+      if (prop.required) {
+        totals.propsRequired++
+      }
+    })
 
-  const totalPropsNoDefaultValue = edges
-    .map(edge => edge)
-    .reduce((items, item) => {
-      items = items || []
-      items.push(item.node.props.filter(prop => !prop.defaultValue).length)
-      return items
-    }, [])
-    .reduce((a, b) => a + b, 0)
+    return {
+      totalFiles: totals.totalFiles,
+      totalProps: totals.totalProps,
+      filesNoProps: totals.filesNoProps,
+      propsNoDescription: totals.propsNoDescription,
+      propsNoDefaultValue: totals.propsNoDefaultValue,
+      propsRequired: totals.propsRequired,
+    }
+  }, {})
 
   const filterOptions = edges.reduce((items, item) => {
     if (item.node.props[0] && items.length < 1) {
@@ -96,15 +102,6 @@ const PropShop = () => {
     }
     return items
   }, [])
-
-  const totalRequiredProps = edges
-    .map(edge => edge)
-    .reduce((items, item) => {
-      items = items || []
-      items.push(item.node.props.filter(prop => prop.required).length)
-      return items
-    }, [])
-    .reduce((a, b) => a + b, 0)
 
   const propData = edges
     .map(edge => {
@@ -130,7 +127,18 @@ const PropShop = () => {
         : node
     })
 
+  // console.log(totals)
+  // console.log(filterOptions)
   // console.log(propData)
+
+  const {
+    totalFiles,
+    totalProps,
+    filesNoProps,
+    propsNoDescription,
+    propsNoDefaultValue,
+    propsRequired,
+  } = totals
 
   return (
     <Fragment>
@@ -156,6 +164,7 @@ const PropShop = () => {
           />
 
           <PropTable
+            searchTerm={searchTerm}
             propData={propData}
             filterOptions={filterOptions}
             isTableExpanded={isTableExpanded}
@@ -183,12 +192,9 @@ const PropShop = () => {
             >
               <StatPanel
                 text={`files without\nproptypes`}
-                value={totalFiles - totalFilesNoProps}
+                value={filesNoProps}
                 total={totalFiles}
-                percent={getPercentageUtil(
-                  totalFiles - totalFilesNoProps,
-                  totalFiles
-                )}
+                percent={getPercentageUtil(filesNoProps, totalFiles)}
               />
             </Box>
             <Box
@@ -199,9 +205,9 @@ const PropShop = () => {
             >
               <StatPanel
                 text="props without descriptions"
-                value={totalPropsNoDescription}
+                value={propsNoDescription}
                 total={totalProps}
-                percent={getPercentageUtil(totalPropsNoDescription, totalProps)}
+                percent={getPercentageUtil(propsNoDescription, totalProps)}
               />
             </Box>
             <Box
@@ -212,12 +218,9 @@ const PropShop = () => {
             >
               <StatPanel
                 text="props without default values"
-                value={totalPropsNoDefaultValue}
+                value={propsNoDefaultValue}
                 total={totalProps}
-                percent={getPercentageUtil(
-                  totalPropsNoDefaultValue,
-                  totalProps
-                )}
+                percent={getPercentageUtil(propsNoDefaultValue, totalProps)}
               />
             </Box>
             <Box
@@ -228,9 +231,9 @@ const PropShop = () => {
             >
               <StatPanel
                 text="props with required value"
-                value={totalRequiredProps}
+                value={propsRequired}
                 total={totalProps}
-                percent={getPercentageUtil(totalRequiredProps, totalProps)}
+                percent={getPercentageUtil(propsRequired, totalProps)}
               />
             </Box>
           </Flex>

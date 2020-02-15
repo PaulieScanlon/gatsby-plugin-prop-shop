@@ -20,8 +20,15 @@ import { DefaultValue } from '../DefaultValue'
 
 import * as styles from './styles'
 
-export const PropTable = ({ isTableExpanded, propData, filterOptions }) => (
-  <TableContainer style={{ height: isTableExpanded ? 'auto' : 400 }}>
+export const PropTable = ({
+  searchTerm,
+  isTableExpanded,
+  propData,
+  filterOptions,
+}) => (
+  <TableContainer
+    style={{ height: searchTerm ? 'auto' : isTableExpanded ? 'auto' : 400 }}
+  >
     <TableWrapper>
       {propData.length < 1 ? (
         <div sx={styles.noDataText}>Oops, no propTypes to display</div>
@@ -95,6 +102,8 @@ export const PropTable = ({ isTableExpanded, propData, filterOptions }) => (
 )
 
 PropTable.propTypes = {
+  // /** Parent searchTerm state value */
+  searchTerm: PropTypes.string.isRequired,
   /** Parent isTableExpanded state value */
   isTableExpanded: PropTypes.bool.isRequired,
   /** The result of GraphQL allComponentMetaData query + applied filter */
