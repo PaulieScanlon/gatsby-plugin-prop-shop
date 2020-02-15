@@ -4,9 +4,9 @@
 
 # gatsby-plugin-prop-shop
 
-With **gatsby-plugin-prop-shop** you can get an holistic view of all defined PropTypes in your project.
+**gatsby-plugin-prop-shop** provides an holistic view of all defined PropTypes or type definitions in your Gatsby project.
 
-Oh, and there must be at least one `.js` file in your project containing `propTypes`
+Oh, and there must be at least one `.js` file in your project containing `propTypes` or one `.tsx` file containing an `interface` or `type`
 
 ## 👁️ Preview
 
@@ -25,6 +25,8 @@ npm install @pauliescanlon/gatsby-plugin-prop-shop --save
 ```
 npm install gatsby-source-filesystem prop-types --save
 ```
+
+If you see any errors relating to Gatsby or React check the peerDependencies versions [here](https://github.com/PaulieScanlon/gatsby-plugin-prop-shop/blob/master/%40pauliescanlon/gatsby-plugin-prop-shop/package.json#L29)
 
 ### Setup
 
@@ -81,6 +83,53 @@ module.exports = {
   ]
   ...
 }
+```
+
+or perhaps you need to jump out a level
+
+```js
+// gatsby-config.js
+module.exports = {
+  ...
+  plugins: [
+    {
+      resolve: `@pauliescanlon/gatsby-plugin-prop-shop`,
+      options: {
+        source: [path.resolve(`${process.cwd()}/../components/src`)],
+      },
+    },
+  ]
+  ...
+}
+```
+
+If you haven't used `PropTypes` before here's a _bit_ of an example.
+
+```js
+...
+import PropTypes from 'prop-types'
+
+export const Say = ({ words }) => <div>{words}</div>
+
+Say.propTypes = {
+  /** Some words that the component must say  */
+  words: PropTypes.string.isRequired
+}
+
+```
+
+If you're using `TypeScript` your `interface` or `type` _might_ look like this.
+
+```js
+...
+interface IProps {
+  /** Some words that the component must say  */
+  words: string;
+}
+
+export const Say: React.FunctionComponent<IProps> = ({ words }) => (
+  <div>{words}</div>
+)
 ```
 
 If you're using **gatsby-plugin-prop-shop** in your project i'd love to hear from you [@pauliescanlon](https://twitter.com/PaulieScanlon)
