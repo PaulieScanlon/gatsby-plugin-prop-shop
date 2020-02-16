@@ -18,9 +18,5 @@ export const PropType = ({ type }) => {
 
 PropType.propTypes = {
   /**  The type value of the prop from react-docgen */
-  type: PropTypes.shape({
-    name: PropTypes.string,
-    value: PropTypes.any,
-    raw: PropTypes.any,
-  }),
+  type: PropTypes.any,
 }
