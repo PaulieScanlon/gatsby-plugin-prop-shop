@@ -1,17 +1,17 @@
 export default {
   colors: {
-    psPrimary: '#93cde8',
-    psSecondary: '#7c98d8 ',
-    psTertiary: '#73b7e6',
-    psMuted: '#d0d7f7',
+    psPrimary: '#3684f3 ',
+    psSecondary: '#356cd0',
+    psTertiary: '#5ca0e8',
+    psMuted: '#b9d7f9',
 
-    psTextLight: '#cccccc',
-    psTextDark: '#666666',
-    psTextMedium: '#999999',
-    psBackground: '#f5f7fc',
+    psTextLight: '#999999',
+    psTextMedium: '#666666',
+    psTextDark: '#333333',
+    psBackground: '#f7f7f7',
 
-    psCommonDivider: '#f1f1f1',
-    psTableBodyDivider: '#edf0f2',
+    psCommonDivider: '#ebebeb',
+    psTableBodyDivider: '#ededed',
     psTableHeadDivider: '#454545',
 
     psTheadBackground: '#000000',
